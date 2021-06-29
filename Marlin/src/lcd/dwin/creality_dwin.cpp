@@ -4571,7 +4571,7 @@ void CrealityDWINClass::Popup_Handler(PopupID popupid, bool option/*=false*/) {
       Draw_Popup("Resuming Print", "Please wait until done.", "", Wait, ICON_BLTouch);
       break;
     case ConfirmStartPrint:
-      Draw_Popup(option ? "Loading Preview..." : "Print file?", option ? "" : "", "", Popup);
+      Draw_Popup(option ? "Loading Preview..." : "Print file?", "", "", Popup);
       break;
     default:
       break;
@@ -4807,11 +4807,7 @@ bool CrealityDWINClass::has_gcode_preview(char *name, uint32_t *position_in_file
 }
 
 uint8_t output_buffer[5120];
-//
-// Tipos:
-//   - 0 : Chiquita.
-//   - 1 : Grandota.
-//
+
 void CrealityDWINClass::gcode_preview_to_display_SRAM(char *name, uint32_t file_index, uint16_t to_address) {
   for (char *c = &name[0]; *c; c++) *c = tolower(*c);
   char file_name[strlen(name) + 1];
