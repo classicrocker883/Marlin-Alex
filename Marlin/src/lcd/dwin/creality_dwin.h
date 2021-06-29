@@ -38,7 +38,7 @@ enum processID : uint8_t {
 enum PopupID : uint8_t {
   Pause, Stop, Resume, SaveLevel, ETemp, ConfFilChange, PurgeMore, MeshSlot,
   Level, Home, MoveWait, Heating,  FilLoad, FilChange, TempWarn, Runout, PIDWait, Resuming, ManualProbing,
-  FilInsert, HeaterTime, UserInput, LevelError, InvalidMesh, UI, Complete
+  FilInsert, HeaterTime, UserInput, LevelError, InvalidMesh, UI, Complete, ConfirmStartPrint
 };
 
 enum menuID : uint8_t {
@@ -321,6 +321,11 @@ public:
   void Popup_Select();
   void Update_Status_Bar(bool refresh=false);
 
+  #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+  void gcode_preview_to_display_SRAM(char *name, uint32_t file_index, uint16_t to_address);
+  bool has_gcode_preview(char *name, uint32_t *position_in_file);
+  #endif
+  
   #if ENABLED(AUTO_BED_LEVELING_UBL)
     void Draw_Bed_Mesh(int16_t selected = -1, uint8_t gridline_width = 1, uint16_t padding_x = 8, uint16_t padding_y_top = 40 + 53 - 7);
     void Set_Mesh_Viewer_Status();

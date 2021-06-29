@@ -85,6 +85,10 @@
   #include "../../feature/powerloss.h"
 #endif
 
+#if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+#include "../../libs/base64.hpp"
+#endif
+
 #define MACHINE_SIZE STRINGIFY(X_BED_SIZE) "x" STRINGIFY(Y_BED_SIZE) "x" STRINGIFY(Z_MAX_POS)
 
 #define CORP_WEBSITE_E "github.com/Jyers"
@@ -4566,6 +4570,9 @@ void CrealityDWINClass::Popup_Handler(PopupID popupid, bool option/*=false*/) {
     case Resuming:
       Draw_Popup("Resuming Print", "Please wait until done.", "", Wait, ICON_BLTouch);
       break;
+    case ConfirmStartPrint:
+      Draw_Popup(option ? "Loading Preview..." : "Print file?", option ? "" : "", "", Popup);
+      break;
     default:
       break;
   }
@@ -4772,6 +4779,76 @@ void CrealityDWINClass::Option_Control() {
   DWIN_UpdateLCD();
 }
 
+#if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+char public_buf[513];
+
+bool CrealityDWINClass::has_gcode_preview(char *name, uint32_t *position_in_file) {
+  for (char *c = &name[0]; *c; c++) *c = tolower(*c);
+  char *encoded_image = NULL;
+  char file_name[strlen(name) + 1]; // Room for filename and null
+  sprintf_P(file_name, "%s", name);
+  card.openFileRead(file_name);
+  uint8_t n_reads = 0;
+  uint32_t filepos = 0;
+  filepos += card.read(public_buf, 512);
+  while(n_reads < 8 && filepos) {
+    encoded_image = strstr(public_buf, "; thumbnail begin 220x124");
+    if (encoded_image) {
+      uint32_t index_bw = &public_buf[512] - encoded_image;
+      *position_in_file = filepos - index_bw;
+      break;
+    }
+      
+    filepos += card.read(public_buf, 512);
+    n_reads++;
+  }
+  card.closefile();
+  return encoded_image;
+}
+
+uint8_t output_buffer[5120];
+//
+// Tipos:
+//   - 0 : Chiquita.
+//   - 1 : Grandota.
+//
+void CrealityDWINClass::gcode_preview_to_display_SRAM(char *name, uint32_t file_index, uint16_t to_address) {
+  for (char *c = &name[0]; *c; c++) *c = tolower(*c);
+  char file_name[strlen(name) + 1];
+  sprintf_P(file_name, "%s", name);
+  card.openFileRead(file_name);
+  card.setIndex(file_index+26); // ; thumbnail begin 220x124 <move here>99999
+
+  char size_buf[10];
+  for (size_t i = 0; i < sizeof(size_buf); i++)
+  {
+    uint8_t c = card.get();
+    if (ISEOL(c)) {
+      size_buf[i] = 0;
+      break;
+    }
+    else
+      size_buf[i] = c;
+  }
+  uint16_t image_size = atoi(size_buf);
+  uint16_t stored_in_buffer = 0;
+  uint8_t encoded_image[image_size+1];
+  while (stored_in_buffer < image_size) {
+    char c = card.get();
+    if (ISEOL(c) || c == ';' || c == ' ') {
+      continue;
+    }
+    else {
+      encoded_image[stored_in_buffer] = c;
+      stored_in_buffer++;
+    }
+  }
+  encoded_image[stored_in_buffer] = 0;
+  unsigned int output_size = decode_base64(encoded_image, output_buffer);
+  DWIN_Save_JPEG_in_SRAM((uint8_t *)output_buffer, output_size, to_address);
+}
+#endif
+
 void CrealityDWINClass::File_Control() {
   ENCODER_DiffState encoder_diffState = Encoder_ReceiveAnalyze();
   static uint8_t filescrl = 0;
@@ -4856,7 +4933,17 @@ void CrealityDWINClass::File_Control() {
         Draw_SD_List();
       }
       else {
+        #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+        uint32_t position_in_file;
+        bool has_preview = has_gcode_preview(card.filename, &position_in_file);
+        Popup_Handler(ConfirmStartPrint, has_preview);
+        if (has_preview) {
+          gcode_preview_to_display_SRAM(card.filename, position_in_file, 0x40);
+          DWIN_SRAM_Memory_Icon_Display(26,120,0x40);
+        }
+        #else
         card.openAndPrintFile(card.filename);
+        #endif
       }
     }
   }
@@ -5041,6 +5128,12 @@ void CrealityDWINClass::Popup_Control() {
             if (printing) Popup_Handler(Resuming);
             else Redraw_Menu(true, true, (active_menu==PreheatHotend));
           }
+          break;
+        case ConfirmStartPrint:
+          if (selection==0) 
+            card.openAndPrintFile(card.filename);
+          else
+            Redraw_Menu(true, true, true);
           break;
       #endif
       #if HAS_MESH
