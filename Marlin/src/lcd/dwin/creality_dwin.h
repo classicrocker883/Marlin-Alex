@@ -322,8 +322,7 @@ public:
   void Update_Status_Bar(bool refresh=false);
 
   #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
-  void gcode_preview_to_display_SRAM(char *name, uint32_t file_index, uint16_t to_address);
-  bool has_gcode_preview(char *name, uint32_t *position_in_file, uint8_t preview_type);
+  bool find_and_decode_gcode_preview(char *name, uint8_t preview_type, uint16_t to_address);
   #endif
   
   #if ENABLED(AUTO_BED_LEVELING_UBL)

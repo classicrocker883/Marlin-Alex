@@ -476,24 +476,18 @@ void CrealityDWINClass::Draw_Menu_Item(uint8_t row, uint8_t icon/*=0*/, const ch
   #ifdef DWIN_CREALITY_LCD_GCODE_PREVIEW
   strcpy_P(current_file, card.filename);
   if (icon == ICON_File) {
-    // SERIAL_ECHOLNPAIR("Hay que dibujar un icono para: ", current_file);
     bool has_icon = false;
-    if (strcmp(last_parsed_name, current_file) != 0) { // si no sabemos nada de nada
-    // SERIAL_ECHOLNPGM("que no esta en cache");
-      has_icon = has_gcode_preview(card.filename, &last_icon_position, 0);
-      if (has_icon) gcode_preview_to_display_SRAM(card.filename, last_icon_position, 0x00);
+    if (strcmp(last_parsed_name, current_file) != 0) { // file is not cached
+      has_icon = find_and_decode_gcode_preview(card.filename, 0, 0x00);
       last_parsed_result = has_icon;
       strcpy_P(last_parsed_name, current_file);
-    } else { // si sabemos sobre el archivo
-      // SERIAL_ECHOLNPGM("que SI esta en cache");
+    } else { // file is cached
       has_icon = last_parsed_result;
     }
 
     if (has_icon) {
-      // SERIAL_ECHOLNPGM("y SI tiene imagen");
       DWIN_SRAM_Memory_Icon_Display(26, MBASE(row) - 3, 0x00);
     } else {
-      // SERIAL_ECHOLNPGM("y no tiene imagen");
       DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw File Icon
     }
   } 
@@ -4819,11 +4813,13 @@ void CrealityDWINClass::Option_Control() {
 
 #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
 char public_buf[513];
+uint8_t output_buffer[5120];
 
 // preview_type
 // 0 - Small thumbnail
 // 1 - Large preview
-bool CrealityDWINClass::has_gcode_preview(char *name, uint32_t *position_in_file, uint8_t preview_type) {
+bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t preview_type, uint16_t to_address) {
+  uint32_t position_in_file = 0;
   for (char *c = &name[0]; *c; c++) *c = tolower(*c);
   char *encoded_image = NULL;
   char file_name[strlen(name) + 1]; // Room for filename and null
@@ -4843,7 +4839,7 @@ bool CrealityDWINClass::has_gcode_preview(char *name, uint32_t *position_in_file
     encoded_image = strstr(public_buf, key);
     if (encoded_image) {
       uint32_t index_bw = &public_buf[512] - encoded_image;
-      *position_in_file = card.getIndex() - index_bw;
+      position_in_file = card.getIndex() - index_bw;
       // SERIAL_ECHOLNPAIR("Imagen encontrada en: ", *position_in_file);
       break;
     }
@@ -4854,19 +4850,10 @@ bool CrealityDWINClass::has_gcode_preview(char *name, uint32_t *position_in_file
 
     n_reads++;
   }
-  card.closefile();
+  // card.closefile();
   memset(public_buf, 0, sizeof(public_buf));
-  return encoded_image;
-}
-
-uint8_t output_buffer[5120];
-
-void CrealityDWINClass::gcode_preview_to_display_SRAM(char *name, uint32_t file_index, uint16_t to_address) {
-  for (char *c = &name[0]; *c; c++) *c = tolower(*c);
-  char file_name[strlen(name) + 1];
-  sprintf_P(file_name, "%s", name);
-  card.openFileRead(file_name);
-  card.setIndex(file_index+18); // ; thumbnail begin <move here>220x124 99999
+  if (encoded_image) {
+  card.setIndex(position_in_file+18); // ; thumbnail begin <move here>220x124 99999
   while (card.get() != ' '); // ; thumbnail begin 220x124 <move here>99999
 
   char size_buf[10];
@@ -4882,20 +4869,24 @@ void CrealityDWINClass::gcode_preview_to_display_SRAM(char *name, uint32_t file_
   }
   uint16_t image_size = atoi(size_buf);
   uint16_t stored_in_buffer = 0;
-  uint8_t encoded_image[image_size+1];
+  uint8_t encoded_image_data[image_size+1];
   while (stored_in_buffer < image_size) {
     char c = card.get();
     if (ISEOL(c) || c == ';' || c == ' ') {
       continue;
     }
     else {
-      encoded_image[stored_in_buffer] = c;
+      encoded_image_data[stored_in_buffer] = c;
       stored_in_buffer++;
     }
   }
-  encoded_image[stored_in_buffer] = 0;
-  unsigned int output_size = decode_base64(encoded_image, output_buffer);
+  card.closefile();
+  encoded_image_data[stored_in_buffer] = 0;
+  unsigned int output_size = decode_base64(encoded_image_data, output_buffer);
   DWIN_Save_JPEG_in_SRAM((uint8_t *)output_buffer, output_size, to_address);
+  }
+  card.closefile();
+  return encoded_image;
 }
 #endif
 
@@ -4984,11 +4975,9 @@ void CrealityDWINClass::File_Control() {
       }
       else {
         #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
-        uint32_t position_in_file;
-        bool has_preview = has_gcode_preview(card.filename, &position_in_file, 1);
+        bool has_preview = find_and_decode_gcode_preview(card.filename, 1, 0x7D0);
         Popup_Handler(ConfirmStartPrint, has_preview);
         if (has_preview) {
-          gcode_preview_to_display_SRAM(card.filename, position_in_file, 0x7D0);
           DWIN_SRAM_Memory_Icon_Display(26,120,0x7D0);
         }
         #else
