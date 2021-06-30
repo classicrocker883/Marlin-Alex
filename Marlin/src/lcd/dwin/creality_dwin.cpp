@@ -473,10 +473,48 @@ void CrealityDWINClass::Draw_Menu_Item(uint8_t row, uint8_t icon/*=0*/, const ch
   const uint8_t label2_offset_x = !centered ? LBLX : LBLX * 4/5 + max(LBLX * 1U/5, (DWIN_WIDTH - LBLX - (label2 ? strlen(label2) : 0) * MENU_CHR_W) / 2);
   if (label1) DWIN_Draw_String(false, false, DWIN_FONT_MENU, Color_White, Color_Bg_Black, label1_offset_x, MBASE(row) - 1 - label_offset_y, label1); // Draw Label
   if (label2) DWIN_Draw_String(false, false, DWIN_FONT_MENU, Color_White, Color_Bg_Black, label2_offset_x, MBASE(row) - 1 + label_offset_y, label2); // Draw Label
+  #ifdef DWIN_CREALITY_LCD_GCODE_PREVIEW
+  strcpy_P(current_file, card.filename);
+  if (icon == ICON_File) {
+    // SERIAL_ECHOLNPAIR("Hay que dibujar un icono para: ", current_file);
+    bool has_icon = false;
+    if (strcmp(last_parsed_name, current_file) != 0) { // si no sabemos nada de nada
+    // SERIAL_ECHOLNPGM("que no esta en cache");
+      has_icon = has_gcode_preview(card.filename, &last_icon_position, 0);
+      if (has_icon) gcode_preview_to_display_SRAM(card.filename, last_icon_position, 0x00);
+      last_parsed_result = has_icon;
+      strcpy_P(last_parsed_name, current_file);
+    } else { // si sabemos sobre el archivo
+      // SERIAL_ECHOLNPGM("que SI esta en cache");
+      has_icon = last_parsed_result;
+    }
+
+    if (has_icon) {
+      // SERIAL_ECHOLNPGM("y SI tiene imagen");
+      DWIN_SRAM_Memory_Icon_Display(26, MBASE(row) - 3, 0x00);
+    } else {
+      // SERIAL_ECHOLNPGM("y no tiene imagen");
+      DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw File Icon
+    }
+  } 
+  else if (icon) DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw Menu Icon
+  #else
   if (icon) DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw Menu Icon
+  #endif
   if (more) DWIN_ICON_Show(ICON, ICON_More, 226, MBASE(row) - 3); // Draw More Arrow
   DWIN_Draw_Line(GetColor(eeprom_settings.menu_split_line, Line_Color, true), 16, MBASE(row) + 33, 256, MBASE(row) + 33); // Draw Menu Line
 }
+
+// void CrealityDWINClass::Draw_Menu_Item(uint8_t row, uint8_t icon/*=0*/, const char * label1, const char * label2, bool more/*=false*/, bool centered/*=false*/) {
+//   const uint8_t label_offset_y = !(label1 && label2) ? 0 : MENU_CHR_H * 3 / 5;
+//   const uint8_t label1_offset_x = !centered ? LBLX : LBLX * 4/5 + max(LBLX * 1U/5, (DWIN_WIDTH - LBLX - (label1 ? strlen(label1) : 0) * MENU_CHR_W) / 2);
+//   const uint8_t label2_offset_x = !centered ? LBLX : LBLX * 4/5 + max(LBLX * 1U/5, (DWIN_WIDTH - LBLX - (label2 ? strlen(label2) : 0) * MENU_CHR_W) / 2);
+//   if (label1) DWIN_Draw_String(false, false, DWIN_FONT_MENU, Color_White, Color_Bg_Black, label1_offset_x, MBASE(row) - 1 - label_offset_y, label1); // Draw Label
+//   if (label2) DWIN_Draw_String(false, false, DWIN_FONT_MENU, Color_White, Color_Bg_Black, label2_offset_x, MBASE(row) - 1 + label_offset_y, label2); // Draw Label
+//   if (icon) DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw Menu Icon
+//   if (more) DWIN_ICON_Show(ICON, ICON_More, 226, MBASE(row) - 3); // Draw More Arrow
+//   DWIN_Draw_Line(GetColor(eeprom_settings.menu_split_line, Line_Color, true), 16, MBASE(row) + 33, 256, MBASE(row) + 33); // Draw Menu Line
+// }
 
 void CrealityDWINClass::Draw_Checkbox(uint8_t row, bool value) {
   #if ENABLED(DWIN_CREALITY_LCD_CUSTOM_ICONS) // Draw appropriate checkbox icon
@@ -4782,27 +4820,42 @@ void CrealityDWINClass::Option_Control() {
 #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
 char public_buf[513];
 
-bool CrealityDWINClass::has_gcode_preview(char *name, uint32_t *position_in_file) {
+// preview_type
+// 0 - Small thumbnail
+// 1 - Large preview
+bool CrealityDWINClass::has_gcode_preview(char *name, uint32_t *position_in_file, uint8_t preview_type) {
   for (char *c = &name[0]; *c; c++) *c = tolower(*c);
   char *encoded_image = NULL;
   char file_name[strlen(name) + 1]; // Room for filename and null
   sprintf_P(file_name, "%s", name);
+  // SERIAL_ECHOLNPAIR("Analizando archivo en busca de imagen: ", file_name);
   card.openFileRead(file_name);
   uint8_t n_reads = 0;
-  uint32_t filepos = 0;
-  filepos += card.read(public_buf, 512);
-  while(n_reads < 8 && filepos) {
-    encoded_image = strstr(public_buf, "; thumbnail begin 220x124");
+  int16_t data_read = card.read(public_buf, 512);
+  card.setIndex(card.getIndex()+data_read);
+  char key[26] = "";
+  switch (preview_type) {
+    case 0: strcpy_P(key, "; thumbnail begin 20x20"); break;
+    case 1: strcpy_P(key, "; thumbnail begin 220x124"); break;
+  }
+  while(n_reads < 16 && data_read) {
+    // SERIAL_ECHOLNPAIR("Pass: ", n_reads);
+    encoded_image = strstr(public_buf, key);
     if (encoded_image) {
       uint32_t index_bw = &public_buf[512] - encoded_image;
-      *position_in_file = filepos - index_bw;
+      *position_in_file = card.getIndex() - index_bw;
+      // SERIAL_ECHOLNPAIR("Imagen encontrada en: ", *position_in_file);
       break;
     }
-      
-    filepos += card.read(public_buf, 512);
+    
+    card.setIndex(card.getIndex()-256);
+    data_read = card.read(public_buf, 512);
+    card.setIndex(card.getIndex()+data_read);
+
     n_reads++;
   }
   card.closefile();
+  memset(public_buf, 0, sizeof(public_buf));
   return encoded_image;
 }
 
@@ -4813,7 +4866,8 @@ void CrealityDWINClass::gcode_preview_to_display_SRAM(char *name, uint32_t file_
   char file_name[strlen(name) + 1];
   sprintf_P(file_name, "%s", name);
   card.openFileRead(file_name);
-  card.setIndex(file_index+26); // ; thumbnail begin 220x124 <move here>99999
+  card.setIndex(file_index+18); // ; thumbnail begin <move here>220x124 99999
+  while (card.get() != ' '); // ; thumbnail begin 220x124 <move here>99999
 
   char size_buf[10];
   for (size_t i = 0; i < sizeof(size_buf); i++)
@@ -4931,11 +4985,11 @@ void CrealityDWINClass::File_Control() {
       else {
         #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
         uint32_t position_in_file;
-        bool has_preview = has_gcode_preview(card.filename, &position_in_file);
+        bool has_preview = has_gcode_preview(card.filename, &position_in_file, 1);
         Popup_Handler(ConfirmStartPrint, has_preview);
         if (has_preview) {
-          gcode_preview_to_display_SRAM(card.filename, position_in_file, 0x40);
-          DWIN_SRAM_Memory_Icon_Display(26,120,0x40);
+          gcode_preview_to_display_SRAM(card.filename, position_in_file, 0x7D0);
+          DWIN_SRAM_Memory_Icon_Display(26,120,0x7D0);
         }
         #else
         card.openAndPrintFile(card.filename);

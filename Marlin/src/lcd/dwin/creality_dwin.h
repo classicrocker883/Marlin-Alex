@@ -323,7 +323,7 @@ public:
 
   #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
   void gcode_preview_to_display_SRAM(char *name, uint32_t file_index, uint16_t to_address);
-  bool has_gcode_preview(char *name, uint32_t *position_in_file);
+  bool has_gcode_preview(char *name, uint32_t *position_in_file, uint8_t preview_type);
   #endif
   
   #if ENABLED(AUTO_BED_LEVELING_UBL)
@@ -370,6 +370,14 @@ public:
   void Save_Settings(char *buff);
   void Load_Settings(const char *buff);
   void Reset_Settings();
+
+#ifdef DWIN_CREALITY_LCD_GCODE_PREVIEW
+private:
+  char last_parsed_name[13] = "";
+  bool last_parsed_result = false;
+  uint32_t last_icon_position = 0;
+  char current_file[13] = "";
+#endif
 
 };
 
