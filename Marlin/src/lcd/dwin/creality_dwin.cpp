@@ -486,7 +486,7 @@ void CrealityDWINClass::Draw_Menu_Item(uint8_t row, uint8_t icon/*=0*/, const ch
     }
 
     if (has_icon) {
-      DWIN_SRAM_Memory_Icon_Display(26, MBASE(row) - 3, 0x00);
+      DWIN_SRAM_Memory_Icon_Display(11, MBASE(row) - 18, 0x00);
     } else {
       DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw File Icon
     }
@@ -541,7 +541,7 @@ void CrealityDWINClass::Draw_Menu(uint8_t menu, uint8_t select/*=0*/, uint8_t sc
   Clear_Screen();
   Draw_Title(Get_Menu_Title(menu));
   LOOP_L_N(i, TROWS) Menu_Item_Handler(menu, i + scrollpos);
-  DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
+  DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 31);
 }
 
 void CrealityDWINClass::Redraw_Menu(bool lastprocess/*=true*/, bool lastselection/*=false*/, bool lastmenu/*=false*/) {
@@ -4680,7 +4680,7 @@ void CrealityDWINClass::Menu_Control() {
       DWIN_Frame_AreaMove(1, 2, MLINE, Color_Bg_Black, 0, 31, DWIN_WIDTH, 349);
       Menu_Item_Handler(active_menu, selection);
     }
-    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
+    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 31);
   }
   else if (encoder_diffState == ENCODER_DIFF_CCW && selection > 0) {
     DWIN_Draw_Rectangle(1, Color_Bg_Black, 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
@@ -4690,7 +4690,7 @@ void CrealityDWINClass::Menu_Control() {
       DWIN_Frame_AreaMove(1, 3, MLINE, Color_Bg_Black, 0, 31, DWIN_WIDTH, 349);
       Menu_Item_Handler(active_menu, selection);
     }
-    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
+    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 31);
   }
   else if (encoder_diffState == ENCODER_DIFF_ENTER)
     Menu_Item_Handler(active_menu, selection, false);
@@ -4831,10 +4831,10 @@ bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t previe
   card.setIndex(card.getIndex()+data_read);
   char key[26] = "";
   switch (preview_type) {
-    case 0: strcpy_P(key, "; thumbnail begin 20x20"); break;
+    case 0: strcpy_P(key, "; thumbnail begin 50x50"); break;
     case 1: strcpy_P(key, "; thumbnail begin 220x124"); break;
   }
-  while(n_reads < 16 && data_read) {
+  while(n_reads < 16 && data_read) { // Max 16 passes so we don't loop forever
     // SERIAL_ECHOLNPAIR("Pass: ", n_reads);
     encoded_image = strstr(public_buf, key);
     if (encoded_image) {
@@ -4844,13 +4844,13 @@ bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t previe
       break;
     }
     
-    card.setIndex(card.getIndex()-256);
+    card.setIndex(card.getIndex()-32);
     data_read = card.read(public_buf, 512);
     card.setIndex(card.getIndex()+data_read);
 
     n_reads++;
   }
-  // card.closefile();
+
   memset(public_buf, 0, sizeof(public_buf));
   if (encoded_image) {
   card.setIndex(position_in_file+18); // ; thumbnail begin <move here>220x124 99999
@@ -4886,6 +4886,7 @@ bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t previe
   DWIN_Save_JPEG_in_SRAM((uint8_t *)output_buffer, output_size, to_address);
   }
   card.closefile();
+  gcode.process_subcommands_now_P(PSTR("M117")); // Clear the message sent by the card API
   return encoded_image;
 }
 #endif
@@ -4941,7 +4942,7 @@ void CrealityDWINClass::File_Control() {
       DWIN_Frame_AreaMove(1, 2, MLINE, Color_Bg_Black, 0, 31, DWIN_WIDTH, 349);
       Draw_SD_Item(selection, selection-scrollpos);
     }
-    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
+    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 31);
   }
   else if (encoder_diffState == ENCODER_DIFF_CCW && selection > 0) {
     DWIN_Draw_Rectangle(1, Color_Bg_Black, 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
@@ -4954,7 +4955,7 @@ void CrealityDWINClass::File_Control() {
       DWIN_Frame_AreaMove(1, 3, MLINE, Color_Bg_Black, 0, 31, DWIN_WIDTH, 349);
       Draw_SD_Item(selection, selection-scrollpos);
     }
-    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
+    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 31);
   }
   else if (encoder_diffState == ENCODER_DIFF_ENTER) {
     if (selection == 0) {
