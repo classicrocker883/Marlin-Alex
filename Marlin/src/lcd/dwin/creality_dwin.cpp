@@ -87,6 +87,9 @@
 
 #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
 #include "../../libs/base64.hpp"
+#include <map>
+#include <string>
+using namespace std;
 #endif
 
 #define MACHINE_SIZE STRINGIFY(X_BED_SIZE) "x" STRINGIFY(Y_BED_SIZE) "x" STRINGIFY(Z_MAX_POS)
@@ -467,6 +470,7 @@ void CrealityDWINClass::Draw_Title(const char * title) {
   DWIN_Draw_String(false, false, DWIN_FONT_HEAD, GetColor(eeprom_settings.menu_top_txt, Color_White, false), Color_Bg_Blue, (DWIN_WIDTH - strlen(title) * STAT_CHR_W) / 2, 5, title);
 }
 
+uint16_t image_address;
 void CrealityDWINClass::Draw_Menu_Item(uint8_t row, uint8_t icon/*=0*/, const char * label1, const char * label2, bool more/*=false*/, bool centered/*=false*/) {
   const uint8_t label_offset_y = !(label1 && label2) ? 0 : MENU_CHR_H * 3 / 5;
   const uint8_t label1_offset_x = !centered ? LBLX : LBLX * 4/5 + max(LBLX * 1U/5, (DWIN_WIDTH - LBLX - (label1 ? strlen(label1) : 0) * MENU_CHR_W) / 2);
@@ -474,23 +478,8 @@ void CrealityDWINClass::Draw_Menu_Item(uint8_t row, uint8_t icon/*=0*/, const ch
   if (label1) DWIN_Draw_String(false, false, DWIN_FONT_MENU, Color_White, Color_Bg_Black, label1_offset_x, MBASE(row) - 1 - label_offset_y, label1); // Draw Label
   if (label2) DWIN_Draw_String(false, false, DWIN_FONT_MENU, Color_White, Color_Bg_Black, label2_offset_x, MBASE(row) - 1 + label_offset_y, label2); // Draw Label
   #ifdef DWIN_CREALITY_LCD_GCODE_PREVIEW
-  strcpy_P(current_file, card.filename);
-  if (icon == ICON_File) {
-    bool has_icon = false;
-    if (strcmp(last_parsed_name, current_file) != 0) { // file is not cached
-      has_icon = find_and_decode_gcode_preview(card.filename, 0, 0x00);
-      last_parsed_result = has_icon;
-      strcpy_P(last_parsed_name, current_file);
-    } else { // file is cached
-      has_icon = last_parsed_result;
-    }
-
-    if (has_icon) {
-      DWIN_SRAM_Memory_Icon_Display(11, MBASE(row) - 18, 0x00);
-    } else {
-      DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw File Icon
-    }
-  } 
+  if (icon == ICON_File && find_and_decode_gcode_preview(card.filename, 0, &image_address))
+    DWIN_SRAM_Memory_Icon_Display(11, MBASE(row) - 18, image_address);
   else if (icon) DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw Menu Icon
   #else
   if (icon) DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw Menu Icon
@@ -4814,11 +4803,18 @@ void CrealityDWINClass::Option_Control() {
 #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
 char public_buf[513];
 uint8_t output_buffer[5120];
+std::map<string, int> image_cache;
+uint16_t next_available_address = 0;
 
 // preview_type
 // 0 - Small thumbnail
 // 1 - Large preview
-bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t preview_type, uint16_t to_address) {
+bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t preview_type, uint16_t *address) {
+  auto it = image_cache.find(name+to_string(preview_type));
+  if (it != image_cache.end()) { // ya está en caché
+    *address = it->second;
+    return true;
+  }
   uint32_t position_in_file = 0;
   for (char *c = &name[0]; *c; c++) *c = tolower(*c);
   char *encoded_image = NULL;
@@ -4880,10 +4876,18 @@ bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t previe
       stored_in_buffer++;
     }
   }
-  card.closefile();
+
   encoded_image_data[stored_in_buffer] = 0;
   unsigned int output_size = decode_base64(encoded_image_data, output_buffer);
-  DWIN_Save_JPEG_in_SRAM((uint8_t *)output_buffer, output_size, to_address);
+  if (next_available_address + output_size >= 0x7530) { // cache is full, invalidate it
+    next_available_address = 0;
+    image_cache.clear();
+    SERIAL_ECHOLNPGM("Cache llena, invalidando");
+  }
+  DWIN_Save_JPEG_in_SRAM((uint8_t *)output_buffer, output_size, next_available_address);
+  image_cache[name+to_string(preview_type)] = next_available_address;
+  *address = next_available_address;
+  next_available_address += output_size + 1;
   }
   card.closefile();
   gcode.process_subcommands_now_P(PSTR("M117")); // Clear the message sent by the card API
@@ -4976,10 +4980,11 @@ void CrealityDWINClass::File_Control() {
       }
       else {
         #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
-        bool has_preview = find_and_decode_gcode_preview(card.filename, 1, 0x7D0);
+        uint16_t image_address;
+        bool has_preview = find_and_decode_gcode_preview(card.filename, 1, &image_address);
         Popup_Handler(ConfirmStartPrint, has_preview);
         if (has_preview) {
-          DWIN_SRAM_Memory_Icon_Display(26,120,0x7D0);
+          DWIN_SRAM_Memory_Icon_Display(26,120,image_address);
         }
         #else
         card.openAndPrintFile(card.filename);

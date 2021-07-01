@@ -322,7 +322,7 @@ public:
   void Update_Status_Bar(bool refresh=false);
 
   #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
-  bool find_and_decode_gcode_preview(char *name, uint8_t preview_type, uint16_t to_address);
+  bool find_and_decode_gcode_preview(char *name, uint8_t preview_type, uint16_t *address);
   #endif
   
   #if ENABLED(AUTO_BED_LEVELING_UBL)
@@ -369,14 +369,6 @@ public:
   void Save_Settings(char *buff);
   void Load_Settings(const char *buff);
   void Reset_Settings();
-
-#ifdef DWIN_CREALITY_LCD_GCODE_PREVIEW
-private:
-  char last_parsed_name[13] = "";
-  bool last_parsed_result = false;
-  uint32_t last_icon_position = 0;
-  char current_file[13] = "";
-#endif
 
 };
 

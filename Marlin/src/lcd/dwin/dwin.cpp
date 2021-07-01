@@ -476,7 +476,7 @@ void DWIN_SRAM_Memory_Icon_Display(uint16_t x, uint16_t y, uint16_t source_addr)
   NOMORE(y, DWIN_HEIGHT - 1); // -- ozy -- srl
   DWIN_Word(i, x);
   DWIN_Word(i, y);
-  DWIN_Byte(i, 0x00);
+  DWIN_Byte(i, 0x80);
   DWIN_Word(i, source_addr);
   DWIN_Send(i);
 }
