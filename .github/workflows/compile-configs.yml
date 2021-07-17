@@ -45,7 +45,7 @@ jobs:
         sed -i "s/default_envs =.*/default_envs = STM32F103RET6_voxelab_$AQUILA_VER/g" platformio.ini
         pio run
         mkdir temp
-        mv .pio/build/STM32F103RET6_creality/*.bin temp/build.bin
+        mv .pio/build/STM32F103RET6_voxelab_$AQUILA_VER/*.bin temp/build.bin
       env:
         BOARD: ${{ matrix.board }}
         AQUILA_VER: ${{ matrix.aquila_version }}
@@ -107,9 +107,10 @@ jobs:
         sed -i "s/[^ ]*#define BLTOUCH_HS_MODE/$TEMP#define BLTOUCH_HS_MODE/g" Marlin/Configuration_adv.h
         pio run
         mkdir temp
-        mv .pio/build/STM32F103RET6_creality/*.bin temp/build.bin
+        mv .pio/build/STM32F103RET6_voxelab_$AQUILA_VER/*.bin temp/build.bin
       env:
         BOARD: ${{ matrix.board }}
+        AQUILA_VER: ${{ matrix.aquila_version }}
         GRID: ${{ matrix.grid }}
         HS: ${{ matrix.highspeed }}
     - name: Get release
@@ -166,9 +167,10 @@ jobs:
         sed -i "s/#define GRID_MAX_POINTS_X.*/#define GRID_MAX_POINTS_X $GRID/g" Marlin/Configuration.h
         pio run
         mkdir temp
-        mv .pio/build/STM32F103RET6_creality/*.bin temp/build.bin
+        mv .pio/build/STM32F103RET6_voxelab_$AQUILA_VER/*.bin temp/build.bin
       env:
         BOARD: ${{ matrix.board }}
+        AQUILA_VER: ${{ matrix.aquila_version }}
         GRID: ${{ matrix.grid }}
     - name: Get release
       id: get_release
@@ -228,9 +230,10 @@ jobs:
         sed -i "s/[^ ]*#define BLTOUCH_HS_MODE/$TEMP#define BLTOUCH_HS_MODE/g" Marlin/Configuration_adv.h
         pio run
         mkdir temp
-        mv .pio/build/STM32F103RET6_creality/*.bin temp/build.bin
+        mv .pio/build/STM32F103RET6_voxelab_$AQUILA_VER/*.bin temp/build.bin
       env:
         BOARD: ${{ matrix.board }}
+        AQUILA_VER: ${{ matrix.aquila_version }}
         GRID: ${{ matrix.grid }}
         HS: ${{ matrix.highspeed }}
     - name: Get release
@@ -287,9 +290,10 @@ jobs:
         sed -i "s/#define GRID_MAX_POINTS_X.*/#define GRID_MAX_POINTS_X $GRID/g" Marlin/Configuration.h
         pio run
         mkdir temp
-        mv .pio/build/STM32F103RET6_creality/*.bin temp/build.bin
+        mv .pio/build/STM32F103RET6_voxelab_$AQUILA_VER/*.bin temp/build.bin
       env:
         BOARD: ${{ matrix.board }}
+        AQUILA_VER: ${{ matrix.aquila_version }}
         GRID: ${{ matrix.grid }}
     - name: Get release
       id: get_release
