@@ -496,17 +496,6 @@ void CrealityDWINClass::Draw_Menu_Item(uint8_t row, uint8_t icon/*=0*/, const ch
   DWIN_Draw_Line(GetColor(eeprom_settings.menu_split_line, Line_Color, true), 16, MBASE(row) + 33, 256, MBASE(row) + 33); // Draw Menu Line
 }
 
-// void CrealityDWINClass::Draw_Menu_Item(uint8_t row, uint8_t icon/*=0*/, const char * label1, const char * label2, bool more/*=false*/, bool centered/*=false*/) {
-//   const uint8_t label_offset_y = !(label1 && label2) ? 0 : MENU_CHR_H * 3 / 5;
-//   const uint8_t label1_offset_x = !centered ? LBLX : LBLX * 4/5 + max(LBLX * 1U/5, (DWIN_WIDTH - LBLX - (label1 ? strlen(label1) : 0) * MENU_CHR_W) / 2);
-//   const uint8_t label2_offset_x = !centered ? LBLX : LBLX * 4/5 + max(LBLX * 1U/5, (DWIN_WIDTH - LBLX - (label2 ? strlen(label2) : 0) * MENU_CHR_W) / 2);
-//   if (label1) DWIN_Draw_String(false, false, DWIN_FONT_MENU, Color_White, Color_Bg_Black, label1_offset_x, MBASE(row) - 1 - label_offset_y, label1); // Draw Label
-//   if (label2) DWIN_Draw_String(false, false, DWIN_FONT_MENU, Color_White, Color_Bg_Black, label2_offset_x, MBASE(row) - 1 + label_offset_y, label2); // Draw Label
-//   if (icon) DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw Menu Icon
-//   if (more) DWIN_ICON_Show(ICON, ICON_More, 226, MBASE(row) - 3); // Draw More Arrow
-//   DWIN_Draw_Line(GetColor(eeprom_settings.menu_split_line, Line_Color, true), 16, MBASE(row) + 33, 256, MBASE(row) + 33); // Draw Menu Line
-// }
-
 void CrealityDWINClass::Draw_Checkbox(uint8_t row, bool value) {
   #if ENABLED(DWIN_CREALITY_LCD_CUSTOM_ICONS) // Draw appropriate checkbox icon
     DWIN_ICON_Show(ICON, (value ? ICON_Checkbox_T : ICON_Checkbox_F), 226, MBASE(row) - 3); 
@@ -553,7 +542,7 @@ void CrealityDWINClass::Redraw_Menu(bool lastprocess/*=true*/, bool lastselectio
       Draw_Print_Screen();
       break;
     case File:
-      Draw_SD_List();
+      Draw_SD_List(false, (lastselection) ? last_selection : 0, (lastselection) ? scrollpos : 0);
       break;
     default:
       break;
@@ -796,15 +785,17 @@ void CrealityDWINClass::Draw_SD_Item(uint8_t item, uint8_t row) {
   }
 }
 
-void CrealityDWINClass::Draw_SD_List(bool removed/*=false*/) {
+void CrealityDWINClass::Draw_SD_List(bool removed/*=false*/, uint8_t select/*=0*/, uint8_t scroll/*=0*/) {
   Clear_Screen();
   Draw_Title("Select File");
-  selection = 0;
-  scrollpos = 0;
+  selection = min((int)select, card.get_num_Files()+1);
+  scrollpos = scroll;
+  if (selection-scrollpos > MROWS)
+    scrollpos = selection - MROWS;
   process = File;
   if (card.isMounted() && !removed) {
     LOOP_L_N(i, _MIN(card.get_num_Files()+1, TROWS))
-      Draw_SD_Item(i, i);
+      Draw_SD_Item(i+scrollpos, i);
   }
   else {
     Draw_Menu_Item(0, ICON_Back, "Back");
@@ -812,7 +803,7 @@ void CrealityDWINClass::Draw_SD_List(bool removed/*=false*/) {
     DWIN_Draw_String(false, false, font16x32, Color_Yellow, Color_Bg_Red, ((DWIN_WIDTH) - 8 * 16) / 2, MBASE(3), "No Media");
     image_cache.clear();
   }
-  DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(0) - 18, 14, MBASE(0) + 33);
+  DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 8, MBASE(selection-scrollpos) + 31);
 }
 
 void CrealityDWINClass::Draw_Status_Area(bool icons/*=false*/) {
@@ -958,7 +949,7 @@ void CrealityDWINClass::Draw_Status_Area(bool icons/*=false*/) {
 
 void CrealityDWINClass::Draw_Popup(const char *line1, const char *line2,const char *line3, uint8_t mode, uint8_t icon/*=0*/) {
   if (process != Confirm && process != Popup && process != Wait) last_process = process;
-  if ((process == Menu || process == Wait) && mode == Popup) last_selection = selection;
+  if ((process == Menu || process == Wait || process == File) && mode == Popup) last_selection = selection;
   process = mode;
   Clear_Screen();
   DWIN_Draw_Rectangle(0, Color_White, 13, 59, 259, 351);
@@ -4965,7 +4956,7 @@ void CrealityDWINClass::File_Control() {
       DWIN_Frame_AreaMove(1, 2, MLINE, Color_Bg_Black, 0, 31, DWIN_WIDTH, 349);
       Draw_SD_Item(selection, selection-scrollpos);
     }
-    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 31);
+    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 8, MBASE(selection-scrollpos) + 31);
   }
   else if (encoder_diffState == ENCODER_DIFF_CCW && selection > 0) {
     DWIN_Draw_Rectangle(1, Color_Bg_Black, 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
@@ -4978,7 +4969,7 @@ void CrealityDWINClass::File_Control() {
       DWIN_Frame_AreaMove(1, 3, MLINE, Color_Bg_Black, 0, 31, DWIN_WIDTH, 349);
       Draw_SD_Item(selection, selection-scrollpos);
     }
-    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 31);
+    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 8, MBASE(selection-scrollpos) + 31);
   }
   else if (encoder_diffState == ENCODER_DIFF_ENTER) {
     if (selection == 0) {
