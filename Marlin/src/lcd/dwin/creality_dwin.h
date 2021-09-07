@@ -266,6 +266,11 @@ enum colorID : uint8_t {
 #define Confirm_Color   	  0x34B9
 #define Cancel_Color        0x3186
 
+#if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+#define Thumnail_Icon       0x00
+#define Thumnail_Preview    0x01
+#endif
+
 class CrealityDWINClass {
 
 public:
