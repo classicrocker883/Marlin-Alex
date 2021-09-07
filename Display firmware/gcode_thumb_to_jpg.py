@@ -5,7 +5,6 @@ import os
 import base64 
 import io
 import subprocess
-import sys
 
 try:
     from PIL import Image
