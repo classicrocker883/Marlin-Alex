@@ -321,7 +321,7 @@ public:
   void Draw_Print_ProgressElapsed();
   void Draw_Print_confirm();
   void Draw_SD_Item(uint8_t item, uint8_t row);
-  void Draw_SD_List(bool removed=false);
+  void Draw_SD_List(bool removed=false, uint8_t select=0, uint8_t scroll=0);
   void Draw_Status_Area(bool icons=false);
   void Draw_Popup(const char * line1, const char * line2, const char * line3, uint8_t mode, uint8_t icon=0);
   void Popup_Select();
