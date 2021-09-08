@@ -189,9 +189,6 @@ float corner_pos;
 bool probe_deployed = false;
 
 #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
-const uint16_t buff_size = 256;
-char public_buf[buff_size+1];
-uint8_t output_buffer[5120];
 std::map<string, int> image_cache;
 uint16_t next_available_address = 1;
 #endif
@@ -801,7 +798,6 @@ void CrealityDWINClass::Draw_SD_List(bool removed/*=false*/, uint8_t select/*=0*
     Draw_Menu_Item(0, ICON_Back, "Back");
     DWIN_Draw_Rectangle(1, Color_Bg_Red, 10, MBASE(3) - 10, DWIN_WIDTH - 10, MBASE(4));
     DWIN_Draw_String(false, false, font16x32, Color_Yellow, Color_Bg_Red, ((DWIN_WIDTH) - 8 * 16) / 2, MBASE(3), "No Media");
-    image_cache.clear();
   }
   DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 8, MBASE(selection-scrollpos) + 31);
 }
@@ -4802,6 +4798,9 @@ void CrealityDWINClass::Option_Control() {
 
 #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
 bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t preview_type, uint16_t *address) {
+  const uint16_t buff_size = 256;
+  char public_buf[buff_size+1];
+  uint8_t output_buffer[6144];
   uint32_t position_in_file = 0;
   char *encoded_image = NULL;
 
@@ -4828,18 +4827,16 @@ bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t previe
   uint8_t n_reads = 0;
   int16_t data_read = card.read(public_buf, buff_size);
   card.setIndex(card.getIndex()+data_read);
-  char key[26] = "";
+  char key[31] = "";
   switch (preview_type) {
-    case Thumnail_Icon: strcpy_P(key, "; thumbnail begin 50x50"); break;
-    case Thumnail_Preview: strcpy_P(key, "; thumbnail begin 220x124"); break;
+    case Thumnail_Icon: strcpy_P(key, "; jpeg thumbnail begin 50x50"); break;
+    case Thumnail_Preview: strcpy_P(key, "; jpeg thumbnail begin 217x217"); break;
   }
   while(n_reads < 16 && data_read) { // Max 16 passes so we don't loop forever
-    // SERIAL_ECHOLNPAIR("Pass: ", n_reads);
     encoded_image = strstr(public_buf, key);
     if (encoded_image) {
       uint32_t index_bw = &public_buf[buff_size] - encoded_image;
       position_in_file = card.getIndex() - index_bw;
-      // SERIAL_ECHOLNPAIR("Imagen encontrada en: ", *position_in_file);
       break;
     }
     
@@ -4853,7 +4850,7 @@ bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t previe
   // If we found the image, decode it
   if (encoded_image) {
   memset(public_buf, 0, sizeof(public_buf));
-  card.setIndex(position_in_file+18); // ; thumbnail begin <move here>220x124 99999
+  card.setIndex(position_in_file+23); // ; thumbnail begin <move here>220x124 99999
   while (card.get() != ' '); // ; thumbnail begin 220x124 <move here>99999
 
   char size_buf[10];
@@ -4886,7 +4883,7 @@ bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t previe
   if (next_available_address + output_size >= 0x7530) { // cache is full, invalidate it
     next_available_address = 0;
     image_cache.clear();
-    SERIAL_ECHOLNPGM("Cache llena, invalidando");
+    SERIAL_ECHOLNPGM("Preview cache full, cleaning up...");
   }
   DWIN_Save_JPEG_in_SRAM((uint8_t *)output_buffer, output_size, next_available_address);
   *address = next_available_address;
@@ -4994,7 +4991,7 @@ void CrealityDWINClass::File_Control() {
         bool has_preview = find_and_decode_gcode_preview(card.filename, Thumnail_Preview, &image_address);
         Popup_Handler(ConfirmStartPrint, has_preview);
         if (has_preview) {
-          DWIN_SRAM_Memory_Icon_Display(26,120,image_address);
+          DWIN_SRAM_Memory_Icon_Display(28,60,image_address);
         }
         #else
         card.openAndPrintFile(card.filename);
@@ -5444,6 +5441,7 @@ void CrealityDWINClass::Screen_Update() {
   static bool mounted = card.isMounted();
   if (mounted != card.isMounted()) {
     mounted = card.isMounted();
+    image_cache.clear();
     if (process == File)
       Draw_SD_List();
   }
