@@ -2748,6 +2748,12 @@
   // NB: Requires Ender-3 v2 OEM display firmware update, or you will get blank icons!
   //
   //#define DWIN_CREALITY_LCD_CUSTOM_ICONS
+
+  //
+  // Enable gcode preview images
+  // Requires using a post-processing script with Cura or PrusaSlicer
+  //
+  #define DWIN_CREALITY_LCD_GCODE_PREVIEW
 #endif
 
 //

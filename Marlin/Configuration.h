@@ -2751,8 +2751,7 @@
 
   //
   // Enable gcode preview images
-  // Requires slicing with PrusaSlicer, adding "thumbnails = 50x50,220x124" to
-  // the printer profile *.ini and adding gcode_thumb_to_jpg.py to the post-processing scripts.
+  // Requires using a post-processing script with Cura or PrusaSlicer
   //
   #define DWIN_CREALITY_LCD_GCODE_PREVIEW
 #endif
