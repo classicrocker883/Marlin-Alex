@@ -294,6 +294,9 @@ public:
     uint8_t status_area_text : 4;
     uint8_t coordinates_text : 4;
     uint8_t coordinates_split_line : 4;
+    #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+      bool show_gcode_thumbnails : 1;
+    #endif
   } eeprom_settings;
 
   const char * const color_names[11] = {"Default", "White", "Green", "Cyan", "Blue", "Magenta", "Red", "Orange", "Yellow", "Brown", "Black"};
@@ -306,7 +309,7 @@ public:
   uint16_t GetColor(uint8_t color, uint16_t original, bool light=false);
   void Draw_Checkbox(uint8_t row, bool value);
   void Draw_Title(const char * title);
-  void Draw_Menu_Item(uint8_t row, uint8_t icon=0, const char * const label1=NULL, const char * const label2=NULL, bool more=false, bool centered=false);
+  void Draw_Menu_Item(uint8_t row, uint8_t icon=0, const char * const label1=NULL, const char * const label2=NULL, bool more=false, bool centered=false, bool onlyCachedFileIcon=false);
   void Draw_Menu(uint8_t menu, uint8_t select=0, uint8_t scroll=0);
   void Redraw_Menu(bool lastprocess=true, bool lastselection=false, bool lastmenu=false);
   void Redraw_Screen();
@@ -320,15 +323,15 @@ public:
   void Draw_Print_ProgressRemain();
   void Draw_Print_ProgressElapsed();
   void Draw_Print_confirm();
-  void Draw_SD_Item(uint8_t item, uint8_t row);
-  void Draw_SD_List(bool removed=false, uint8_t select=0, uint8_t scroll=0);
+  void Draw_SD_Item(uint8_t item, uint8_t row, bool onlyCachedFileIcon=false);
+  void Draw_SD_List(bool removed=false, uint8_t select=0, uint8_t scroll=0, bool onlyCachedFileIcon=false);
   void Draw_Status_Area(bool icons=false);
   void Draw_Popup(const char * line1, const char * line2, const char * line3, uint8_t mode, uint8_t icon=0);
   void Popup_Select();
   void Update_Status_Bar(bool refresh=false);
 
   #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
-  bool find_and_decode_gcode_preview(char *name, uint8_t preview_type, uint16_t *address);
+  bool find_and_decode_gcode_preview(char *name, uint8_t preview_type, uint16_t *address, bool onlyCachedFileIcon=false);
   #endif
   
   #if ENABLED(AUTO_BED_LEVELING_UBL)
