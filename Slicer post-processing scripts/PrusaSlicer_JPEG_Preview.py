@@ -42,7 +42,7 @@ for idx, match in enumerate(thumb_matches):
     img_png = Image.open(io.BytesIO(decoded))
     img_png_rgb = img_png.convert('RGB')
     img_byte_arr = io.BytesIO()
-    img_png_rgb.save(img_byte_arr, format='jpeg', quality=90 if idx == 0 else 75, optimize=True)
+    img_png_rgb.save(img_byte_arr, format='jpeg', quality=70 if idx == 0 else 60, optimize=True)
     img_byte_arr = img_byte_arr.getvalue()
     encodedjpg = base64.b64encode(img_byte_arr).decode("utf-8")
     encodedjpg_gcode = encodedStringToGcodeComment(encodedjpg)

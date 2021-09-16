@@ -103,7 +103,7 @@ class Cura_JPEG_Preview(Script):
 
         thumbnail = self._createSnapshot(thumbnail_width, thumbnail_height)
         if thumbnail and self.getSettingValueByKey("create_thumbnail"):
-            encoded_thumbnail = self._encodeSnapshot(thumbnail, 90)
+            encoded_thumbnail = self._encodeSnapshot(thumbnail, 70)
             thumbnail_gcode = self._convertSnapshotToGcode(
                 encoded_thumbnail, thumbnail_width, thumbnail_height)
 
