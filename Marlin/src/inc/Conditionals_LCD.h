@@ -563,6 +563,10 @@
   #undef DISABLE_E
 #endif
 
+#define E_OPTARG(N) OPTARG(HAS_MULTI_EXTRUDER, N)
+#define E_TERN_(N)  TERN_(HAS_MULTI_EXTRUDER, N)
+#define E_TERN0(N)  TERN0(HAS_MULTI_EXTRUDER, N)
+
 #if ENABLED(E_DUAL_STEPPER_DRIVERS) // E0/E1 steppers act in tandem as E0
 
   #define E_STEPPERS      2

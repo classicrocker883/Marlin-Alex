@@ -1,0 +1,6135 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "Marlin.elf"
+		}
+	],
+	"backtrace" : 3,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"setup_arduino_target",
+			"generate_arduino_firmware",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"marlin-cmake/Platform/Arduino.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 123,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 533,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1132,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 1140,
+				"parent" : 2
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -Os -w -std=gnu++11 -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD"
+				},
+				{
+					"fragment" : " -DF_CPU=16000000L -DARDUINO=10005 -DARDUINO_ -DARDUINO_ARCH_AVR -mmcu=atmega328p -I\"/usr/share/arduino/hardware/arduino/cores/arduino\" -I\"/usr/share/arduino/libraries\" -I\"/usr/share/arduino/hardware/arduino/variants/standard\"  -I\"/usr/share/arduino/libraries/Wire\" -I\"/usr/share/arduino/libraries/Wire/src\" -I\"/usr/share/arduino/libraries/SPI\" -I\"/usr/share/arduino/libraries/SPI/src\" -I\"/usr/share/arduino/libraries/Servo\" -I\"/usr/share/arduino/libraries/Servo/src\" -I\"/usr/share/arduino/libraries/EEPROM\" -I\"/usr/share/arduino/libraries/EEPROM/src\" -I\"/usr/share/arduino/libraries/WiFi\" -I\"/usr/share/arduino/libraries/WiFi/src\" -I\"/usr/share/arduino/libraries/SoftwareSerial\" -I\"/usr/share/arduino/libraries/SoftwareSerial/src\" -I\"/usr/share/arduino/libraries/Wire\" -I\"/usr/share/arduino/libraries/Wire/src\" -I\"/usr/share/arduino/libraries/Wire/utility\" -I\"/usr/share/arduino/libraries/SPI\" -I\"/usr/share/arduino/libraries/SPI/src\" -I\"/usr/share/arduino/libraries/SPI/utility\" -I\"/usr/share/arduino/libraries/Servo\" -I\"/usr/share/arduino/libraries/Servo/src\" -I\"/usr/share/arduino/libraries/Servo/utility\" -I\"/usr/share/arduino/libraries/EEPROM\" -I\"/usr/share/arduino/libraries/EEPROM/src\" -I\"/usr/share/arduino/libraries/EEPROM/utility\" -I\"/usr/share/arduino/libraries/WiFi\" -I\"/usr/share/arduino/libraries/WiFi/src\" -I\"/usr/share/arduino/libraries/WiFi/utility\" -I\"/usr/share/arduino/libraries/SoftwareSerial\" -I\"/usr/share/arduino/libraries/SoftwareSerial/src\" -I\"/usr/share/arduino/libraries/SoftwareSerial/utility\""
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97,
+				98,
+				99,
+				100,
+				101,
+				102,
+				103,
+				104,
+				105,
+				106,
+				107,
+				108,
+				109,
+				110,
+				111,
+				112,
+				113,
+				114,
+				115,
+				116,
+				117,
+				118,
+				119,
+				120,
+				121,
+				122,
+				123,
+				124,
+				125,
+				126,
+				127,
+				128,
+				129,
+				130,
+				131,
+				132,
+				133,
+				134,
+				135,
+				136,
+				137,
+				138,
+				139,
+				140,
+				141,
+				142,
+				143,
+				144,
+				145,
+				146,
+				147,
+				148,
+				149,
+				150,
+				151,
+				152,
+				153,
+				154,
+				155,
+				156,
+				157,
+				158,
+				159,
+				160,
+				161,
+				162,
+				163,
+				164,
+				165,
+				166,
+				167,
+				168,
+				169,
+				170,
+				171,
+				172,
+				173,
+				174,
+				175,
+				176,
+				177,
+				178,
+				179,
+				180,
+				181,
+				182,
+				183,
+				184,
+				185,
+				186,
+				187,
+				188,
+				189,
+				190,
+				191,
+				192,
+				193,
+				194,
+				195,
+				196,
+				197,
+				198,
+				199,
+				200,
+				201,
+				202,
+				203,
+				204,
+				205,
+				206,
+				207,
+				208,
+				209,
+				210,
+				211,
+				212,
+				213,
+				214,
+				215,
+				216,
+				217,
+				218,
+				219,
+				220,
+				221,
+				222,
+				223,
+				224,
+				225,
+				226,
+				227,
+				228,
+				229,
+				230,
+				231,
+				232,
+				233,
+				234,
+				235,
+				236,
+				237,
+				238,
+				239,
+				240,
+				241,
+				242,
+				243,
+				244,
+				245,
+				246,
+				247,
+				248,
+				249,
+				250,
+				251,
+				252,
+				253,
+				254,
+				255,
+				256,
+				257,
+				258,
+				259,
+				260,
+				261,
+				262,
+				263,
+				264,
+				265,
+				266,
+				267,
+				268,
+				269,
+				270,
+				271,
+				272,
+				273,
+				274,
+				275,
+				276,
+				277,
+				278,
+				279,
+				280,
+				281,
+				282,
+				283,
+				284,
+				285,
+				286,
+				287,
+				288,
+				289,
+				290,
+				291,
+				292,
+				293,
+				294,
+				295,
+				296,
+				297,
+				298,
+				299,
+				300,
+				301,
+				302,
+				303,
+				304,
+				305,
+				306,
+				307,
+				308,
+				309,
+				310,
+				311,
+				312,
+				313,
+				314,
+				315,
+				316,
+				317,
+				318,
+				319,
+				320,
+				321,
+				322,
+				323,
+				324,
+				325,
+				326,
+				327,
+				328,
+				329,
+				330,
+				331,
+				332,
+				333,
+				334,
+				335,
+				336,
+				337,
+				338,
+				339,
+				340,
+				341,
+				342,
+				343,
+				344,
+				345,
+				346,
+				347,
+				348,
+				349,
+				350,
+				351,
+				352,
+				353,
+				354,
+				355,
+				356,
+				357,
+				358,
+				359,
+				360,
+				361,
+				362,
+				363,
+				364,
+				365,
+				366,
+				367,
+				368,
+				369,
+				370,
+				371,
+				372,
+				373,
+				374,
+				375,
+				376,
+				377,
+				378,
+				379,
+				380,
+				381,
+				382,
+				383,
+				384,
+				385,
+				386,
+				387,
+				388,
+				389,
+				390,
+				391,
+				392,
+				393,
+				394,
+				395,
+				396,
+				397,
+				398,
+				399,
+				400,
+				401,
+				402,
+				403,
+				404,
+				405,
+				406,
+				407,
+				408,
+				409,
+				410,
+				411,
+				412,
+				413,
+				414,
+				415,
+				416,
+				417,
+				418,
+				419,
+				420,
+				421,
+				422,
+				423,
+				424,
+				425,
+				426,
+				427,
+				428,
+				429,
+				430,
+				431,
+				432,
+				433,
+				434,
+				435,
+				436,
+				437,
+				438,
+				439,
+				440,
+				441,
+				442,
+				443,
+				444,
+				445,
+				446,
+				447,
+				448,
+				449,
+				450,
+				451,
+				452,
+				453,
+				454,
+				455,
+				456,
+				457,
+				458,
+				459,
+				460,
+				461,
+				462,
+				463,
+				464,
+				465,
+				466,
+				467,
+				468,
+				469,
+				470,
+				471,
+				472,
+				473,
+				474,
+				475,
+				476,
+				477,
+				478,
+				479,
+				480,
+				481,
+				482,
+				483,
+				484,
+				485,
+				486,
+				487,
+				488,
+				489,
+				490,
+				491,
+				492,
+				493,
+				494,
+				495,
+				496,
+				497,
+				498,
+				499,
+				500,
+				501,
+				502,
+				503,
+				504,
+				505,
+				506,
+				507,
+				508,
+				509,
+				510,
+				511,
+				512,
+				513,
+				514,
+				515,
+				516,
+				517,
+				518,
+				519,
+				520,
+				521,
+				522,
+				523,
+				524,
+				525,
+				526,
+				527,
+				528,
+				529,
+				530,
+				531,
+				532,
+				533,
+				534,
+				535,
+				536,
+				537,
+				538,
+				539,
+				540,
+				541,
+				542,
+				543,
+				544,
+				545,
+				546,
+				547,
+				548,
+				549,
+				550,
+				551,
+				552,
+				553,
+				554,
+				555,
+				556,
+				557,
+				558,
+				559,
+				560,
+				561,
+				562,
+				563,
+				564,
+				565,
+				566,
+				567,
+				568,
+				569,
+				570,
+				571,
+				572,
+				573,
+				574,
+				575,
+				576,
+				577,
+				578,
+				579,
+				580,
+				581,
+				582,
+				583,
+				584,
+				585,
+				586,
+				587,
+				588,
+				589,
+				590,
+				591,
+				592,
+				593,
+				594,
+				595,
+				596,
+				597,
+				598,
+				599,
+				600,
+				601,
+				602,
+				603,
+				604,
+				605,
+				606,
+				607,
+				608,
+				609,
+				610,
+				611,
+				612,
+				613,
+				614,
+				615,
+				616,
+				617,
+				618,
+				619,
+				620,
+				621,
+				622,
+				623,
+				624,
+				625,
+				626,
+				627,
+				628,
+				629,
+				630,
+				631,
+				632,
+				633,
+				634,
+				635,
+				636,
+				637,
+				638,
+				639,
+				640,
+				641,
+				642,
+				643,
+				644,
+				645,
+				646,
+				647,
+				648,
+				649,
+				650,
+				651,
+				652,
+				653,
+				654,
+				655,
+				656,
+				657,
+				658,
+				659,
+				660,
+				661,
+				662,
+				663,
+				664,
+				665,
+				666,
+				667,
+				668,
+				669,
+				670,
+				671,
+				672,
+				673,
+				674,
+				675,
+				676,
+				677,
+				678,
+				679,
+				680,
+				681,
+				682,
+				683,
+				684,
+				685,
+				686,
+				687,
+				688,
+				689,
+				690,
+				691,
+				692,
+				693,
+				694,
+				695,
+				696,
+				697,
+				698,
+				699,
+				700,
+				701,
+				702,
+				703,
+				704,
+				705,
+				706,
+				707,
+				708,
+				709,
+				710,
+				711,
+				712,
+				713,
+				714,
+				715,
+				716,
+				717,
+				718,
+				719,
+				720,
+				721,
+				722,
+				723,
+				724,
+				725,
+				726,
+				727,
+				728,
+				729,
+				730,
+				731,
+				732,
+				733,
+				734,
+				735,
+				736,
+				737,
+				738,
+				739,
+				740,
+				741,
+				742
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "uno_CORE::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "uno_SoftwareSerial::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "uno_Wire::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "uno_SPI::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "uno_EEPROM::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "uno_Servo::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "uno_WiFi::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "Marlin::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g -Os -w -std=gnu++11 -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-w -Os -Wl,--gc-sections -lm  -mmcu=atmega328p",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "libuno_Wire.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "libuno_SPI.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "libuno_Servo.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "libuno_EEPROM.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "libuno_WiFi.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "libuno_SoftwareSerial.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "libuno_CORE.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lc -lm",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "Marlin",
+	"nameOnDisk" : "Marlin.elf",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97,
+				98,
+				99,
+				100,
+				101,
+				102,
+				103,
+				104,
+				105,
+				106,
+				107,
+				108,
+				109,
+				110,
+				111,
+				112,
+				113,
+				114,
+				115,
+				116,
+				117,
+				118,
+				119,
+				120,
+				121,
+				122,
+				123,
+				124,
+				125,
+				126,
+				127,
+				128,
+				129,
+				130,
+				131,
+				132,
+				133,
+				134,
+				135,
+				136,
+				137,
+				138,
+				139,
+				140,
+				141,
+				142,
+				143,
+				144,
+				145,
+				146,
+				147,
+				148,
+				149,
+				150,
+				151,
+				152,
+				153,
+				154,
+				155,
+				156,
+				157,
+				158,
+				159,
+				160,
+				161,
+				162,
+				163,
+				164,
+				165,
+				166,
+				167,
+				168,
+				169,
+				170,
+				171,
+				172,
+				173,
+				174,
+				175,
+				176,
+				177,
+				178,
+				179,
+				180,
+				181,
+				182,
+				183,
+				184,
+				185,
+				186,
+				187,
+				188,
+				189,
+				190,
+				191,
+				192,
+				193,
+				194,
+				195,
+				196,
+				197,
+				198,
+				199,
+				200,
+				201,
+				202,
+				203,
+				204,
+				205,
+				206,
+				207,
+				208,
+				209,
+				210,
+				211,
+				212,
+				213,
+				214,
+				215,
+				216,
+				217,
+				218,
+				219,
+				220,
+				221,
+				222,
+				223,
+				224,
+				225,
+				226,
+				227,
+				228,
+				229,
+				230,
+				231,
+				232,
+				233,
+				234,
+				235,
+				236,
+				237,
+				238,
+				239,
+				240,
+				241,
+				242,
+				243,
+				244,
+				245,
+				246,
+				247,
+				248,
+				249,
+				250,
+				251,
+				252,
+				253,
+				254,
+				255,
+				256,
+				257,
+				258,
+				259,
+				260,
+				261,
+				262,
+				263,
+				264,
+				265,
+				266,
+				267,
+				268,
+				269,
+				270,
+				271,
+				272,
+				273,
+				274,
+				275,
+				276,
+				277,
+				278,
+				279,
+				280,
+				281,
+				282,
+				283,
+				284,
+				285,
+				286,
+				287,
+				288,
+				289,
+				290,
+				291,
+				292,
+				293,
+				294,
+				295,
+				296,
+				297,
+				298,
+				299,
+				300,
+				301,
+				302,
+				303,
+				304,
+				305,
+				306,
+				307,
+				308,
+				309,
+				310,
+				311,
+				312,
+				313,
+				314,
+				315,
+				316,
+				317,
+				318,
+				319,
+				320,
+				321,
+				322,
+				323,
+				324,
+				325,
+				326,
+				327,
+				328,
+				329,
+				330,
+				331,
+				332,
+				333,
+				334,
+				335,
+				336,
+				337,
+				338,
+				339,
+				340,
+				341,
+				342,
+				343,
+				344,
+				345,
+				346,
+				347,
+				348,
+				349,
+				350,
+				351,
+				352,
+				353,
+				354,
+				355,
+				356,
+				357,
+				358,
+				359,
+				360,
+				361,
+				362,
+				363,
+				364,
+				365,
+				366,
+				367,
+				368,
+				369,
+				370,
+				371,
+				372,
+				373,
+				374,
+				375,
+				376,
+				377,
+				378,
+				379,
+				380,
+				381,
+				382,
+				383,
+				384,
+				385,
+				386,
+				387,
+				388,
+				389,
+				390,
+				391,
+				392,
+				393,
+				394,
+				395,
+				396,
+				397,
+				398,
+				399,
+				400,
+				401,
+				402,
+				403,
+				404,
+				405,
+				406,
+				407,
+				408,
+				409,
+				410,
+				411,
+				412,
+				413,
+				414,
+				415,
+				416,
+				417,
+				418,
+				419,
+				420,
+				421,
+				422,
+				423,
+				424,
+				425,
+				426,
+				427,
+				428,
+				429,
+				430,
+				431,
+				432,
+				433,
+				434,
+				435,
+				436,
+				437,
+				438,
+				439,
+				440,
+				441,
+				442,
+				443,
+				444,
+				445,
+				446,
+				447,
+				448,
+				449,
+				450,
+				451,
+				452,
+				453,
+				454,
+				455,
+				456,
+				457,
+				458,
+				459,
+				460,
+				461,
+				462,
+				463,
+				464,
+				465,
+				466,
+				467,
+				468,
+				469,
+				470,
+				471,
+				472,
+				473,
+				474,
+				475,
+				476,
+				477,
+				478,
+				479,
+				480,
+				481,
+				482,
+				483,
+				484,
+				485,
+				486,
+				487,
+				488,
+				489,
+				490,
+				491,
+				492,
+				493,
+				494,
+				495,
+				496,
+				497,
+				498,
+				499,
+				500,
+				501,
+				502,
+				503,
+				504,
+				505,
+				506,
+				507,
+				508,
+				509,
+				510,
+				511,
+				512,
+				513,
+				514,
+				515,
+				516,
+				517,
+				518,
+				519,
+				520,
+				521,
+				522,
+				523,
+				524,
+				525,
+				526,
+				527,
+				528,
+				529,
+				530,
+				531,
+				532,
+				533,
+				534,
+				535,
+				536,
+				537,
+				538,
+				539,
+				540,
+				541,
+				542,
+				543,
+				544,
+				545,
+				546,
+				547,
+				548,
+				549,
+				550,
+				551,
+				552,
+				553,
+				554,
+				555,
+				556,
+				557,
+				558,
+				559,
+				560,
+				561,
+				562,
+				563,
+				564,
+				565,
+				566,
+				567,
+				568,
+				569,
+				570,
+				571,
+				572,
+				573,
+				574,
+				575,
+				576,
+				577,
+				578,
+				579,
+				580,
+				581,
+				582,
+				583,
+				584,
+				585,
+				586,
+				587,
+				588,
+				589,
+				590,
+				591,
+				592,
+				593,
+				594,
+				595,
+				596,
+				597,
+				598,
+				599,
+				600,
+				601,
+				602,
+				603,
+				604,
+				605,
+				606,
+				607,
+				608,
+				609,
+				610,
+				611,
+				612,
+				613,
+				614,
+				615,
+				616,
+				617,
+				618,
+				619,
+				620,
+				621,
+				622,
+				623,
+				624,
+				625,
+				626,
+				627,
+				628,
+				629,
+				630,
+				631,
+				632,
+				633,
+				634,
+				635,
+				636,
+				637,
+				638,
+				639,
+				640,
+				641,
+				642,
+				643,
+				644,
+				645,
+				646,
+				647,
+				648,
+				649,
+				650,
+				651,
+				652,
+				653,
+				654,
+				655,
+				656,
+				657,
+				658,
+				659,
+				660,
+				661,
+				662,
+				663,
+				664,
+				665,
+				666,
+				667,
+				668,
+				669,
+				670,
+				671,
+				672,
+				673,
+				674,
+				675,
+				676,
+				677,
+				678,
+				679,
+				680,
+				681,
+				682,
+				683,
+				684,
+				685,
+				686,
+				687,
+				688,
+				689,
+				690,
+				691,
+				692,
+				693,
+				694,
+				695,
+				696,
+				697,
+				698,
+				699,
+				700,
+				701,
+				702,
+				703,
+				704,
+				705,
+				706,
+				707,
+				708,
+				709,
+				710,
+				711,
+				712,
+				713,
+				714,
+				715,
+				716,
+				717,
+				718,
+				719,
+				720,
+				721,
+				722,
+				723,
+				724,
+				725,
+				726,
+				727,
+				728,
+				729,
+				730,
+				731,
+				732,
+				733,
+				734,
+				735,
+				736,
+				737,
+				738,
+				739,
+				740,
+				741,
+				742
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				743
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/AVR/HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/AVR/HAL_SPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/AVR/MarlinSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/AVR/Servo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/AVR/eeprom.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/AVR/fast_pwm.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/AVR/fastio.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/AVR/u8g_com_HAL_AVR_sw_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/AVR/watchdog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/HAL_MinSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/HAL_SPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/InterruptVectors.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/MarlinSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/MarlinSerialUSB.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/Servo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/Tone.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/dogm/u8g_com_HAL_DUE_shared_hw_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/dogm/u8g_com_HAL_DUE_st7920_sw_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/dogm/u8g_com_HAL_DUE_sw_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/dogm/u8g_com_HAL_DUE_sw_spi_shared.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/eeprom_flash.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/eeprom_wired.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/fastio/G2_PWM.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/timers.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/usb/sd_mmc_spi_mem.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/DUE/watchdog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/FlushableHardwareSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/HAL_SPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/Servo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/Tone.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/WebSocketSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/eeprom.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/i2s.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/ota.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/spiffs.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/timers.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/watchdog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/web.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/ESP32/wifi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/arduino.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/eeprom.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/hardware/Clock.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/hardware/Gpio.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/hardware/Heater.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/hardware/IOLoggerCSV.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/hardware/LinearAxis.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/hardware/Timer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/include/pinmapping.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/timers.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LINUX/watchdog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/HAL_MinSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/HAL_SPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/MarlinSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/eeprom_flash.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/eeprom_sdcard.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/eeprom_wired.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/fast_pwm.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/tft/tft_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/tft/xpt2046.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/timers.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/u8g/LCD_I2C_routines.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/u8g/u8g_com_HAL_LPC1768_hw_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/u8g/u8g_com_HAL_LPC1768_ssd_hw_i2c.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/u8g/u8g_com_HAL_LPC1768_st7920_hw_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/u8g/u8g_com_HAL_LPC1768_st7920_sw_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/u8g/u8g_com_HAL_LPC1768_sw_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/usb_serial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/LPC1768/watchdog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/NATIVE_SIM/u8g/LCD_I2C_routines.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/NATIVE_SIM/u8g/LCD_pin_routines.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/NATIVE_SIM/u8g/u8g_com_st7920_sw_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/NATIVE_SIM/u8g/u8g_com_sw_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/SAMD51/HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/SAMD51/HAL_SPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/SAMD51/MarlinSerial_AGCM4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/SAMD51/QSPIFlash.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/SAMD51/Servo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/SAMD51/eeprom_flash.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/SAMD51/eeprom_qspi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/SAMD51/eeprom_wired.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/SAMD51/timers.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/SAMD51/watchdog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/HAL_MinSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/HAL_SPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/MarlinSPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/MarlinSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/Sd2Card_sdio_stm32duino.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/Servo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/eeprom_bl24cxx.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/eeprom_flash.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/eeprom_if_iic.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/eeprom_sdcard.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/eeprom_sram.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/eeprom_wired.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/fast_pwm.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/fastio.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/msc_sd.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/tft/gt911.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/tft/tft_fsmc.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/tft/tft_ltdc.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/tft/tft_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/tft/xpt2046.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/timers.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/usb_host.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/usb_serial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32/watchdog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/HAL_MinSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/HAL_SPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/MarlinSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/SPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/Servo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/dogm/u8g_com_stm32duino_swspi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/eeprom_bl24cxx.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/eeprom_flash.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/eeprom_if_iic.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/eeprom_sdcard.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/eeprom_wired.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/fast_pwm.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/msc_sd.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/onboard_sd.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/sdio.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/tft/tft_fsmc.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/tft/tft_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/tft/xpt2046.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/timers.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/STM32F1/watchdog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY31_32/HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY31_32/HAL_SPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY31_32/Servo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY31_32/eeprom.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY31_32/timers.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY31_32/watchdog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY35_36/HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY35_36/HAL_SPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY35_36/Servo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY35_36/eeprom.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY35_36/timers.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY35_36/watchdog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY40_41/HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY40_41/HAL_SPI.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY40_41/Servo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY40_41/eeprom.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY40_41/timers.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/TEENSY40_41/watchdog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/Delay.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/HAL_MinSerial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/HAL_spi_L6470.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/backtrace/backtrace.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/backtrace/unwarm.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/backtrace/unwarm_arm.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/backtrace/unwarm_thumb.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/backtrace/unwarmbytab.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/backtrace/unwarmmem.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/backtrace/unwinder.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/backtrace/unwmemaccess.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/cpu_exception/exception_arm.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/cpu_exception/exception_hook.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/eeprom_api.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/eeprom_if_i2c.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/eeprom_if_spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/esp_wifi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/HAL/shared/servo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/MarlinCore.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/core/serial.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/core/utility.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/ammeter.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/babystep.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/backlash.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/baricuda.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/bedlevel/abl/abl.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/bedlevel/bedlevel.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/bedlevel/hilbert_curve.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/bedlevel/mbl/mesh_bed_leveling.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/bedlevel/ubl/ubl.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/bedlevel/ubl/ubl_G29.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/bedlevel/ubl/ubl_motion.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/binary_stream.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/bltouch.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/cancel_object.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/caselight.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/closedloop.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/controllerfan.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/cooler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/dac/dac_dac084s085.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/dac/dac_mcp4728.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/dac/stepper_dac.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/digipot/digipot_mcp4018.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/digipot/digipot_mcp4451.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/direct_stepping.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/e_parser.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/encoder_i2c.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/ethernet.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/fanmux.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/filwidth.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/fwretract.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/host_actions.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/hotend_idle.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/joystick.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/leds/blinkm.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/leds/leds.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/leds/neopixel.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/leds/pca9533.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/leds/pca9632.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/leds/printer_event_leds.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/leds/tempstat.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/max7219.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/meatpack.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/mixing.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/mmu/mmu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/mmu/mmu2.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/password/password.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/pause.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/power.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/power_monitor.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/powerloss.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/probe_temp_comp.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/repeat.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/runout.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/solenoid.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/spindle_laser.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/stepper_driver_safety.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/tmc_util.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/tramming.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/twibus.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/feature/z_stepper_align.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/bedlevel/G26.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/bedlevel/G35.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/bedlevel/G42.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/bedlevel/M420.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/bedlevel/abl/G29.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/bedlevel/abl/M421.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/bedlevel/mbl/G29.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/bedlevel/mbl/M421.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/bedlevel/ubl/G29.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/bedlevel/ubl/M421.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/G28.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/G33.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/G34.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/G34_M422.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/G425.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/G76_M192_M871.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/M100.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/M12.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/M425.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/M48.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/M665.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/M666.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/calibrate/M852.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M200-M205.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M217.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M218.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M220.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M221.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M281.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M301.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M302.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M304.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M305.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M309.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M43.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M540.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M575.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M672.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/config/M92.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M10-M11.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M108_M112_M410.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M111.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M120_M121.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M17_M18_M84.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M211.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M226.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M280.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M282.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M3-M5.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M350_M351.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M380_M381.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M400.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M42.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M605.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M7-M9.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M80_M81.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M85.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M993_M994.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M997.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/M999.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/control/T.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/eeprom/M500-M504.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/L6470/M122.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/L6470/M906.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/L6470/M916-918.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/advance/M900.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/baricuda/M126-M129.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/camera/M240.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/cancel/M486.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/caselight/M355.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/clean/G12.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/controllerfan/M710.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/digipot/M907-M910.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/filwidth/M404-M407.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/fwretract/G10_G11.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/fwretract/M207-M209.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/i2c/M260_M261.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/leds/M150.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/leds/M7219.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/macro/M810-M819.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/mixing/M163-M165.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/mixing/M166.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/network/M552-M554.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/password/M510-M512.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/pause/G27.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/pause/G60.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/pause/G61.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/pause/M125.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/pause/M600.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/pause/M603.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/pause/M701_M702.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/power_monitor/M430.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/powerloss/M1000.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/powerloss/M413.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/prusa_MMU2/M403.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/runout/M412.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/trinamic/M122.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/trinamic/M569.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/trinamic/M906.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/feature/trinamic/M911-M914.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/gcode.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/gcode_d.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/geometry/G17-G19.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/geometry/G53-G59.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/geometry/G92.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/geometry/M206_M428.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/host/M110.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/host/M113.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/host/M114.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/host/M115.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/host/M118.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/host/M119.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/host/M154.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/host/M16.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/host/M360.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/host/M876.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/lcd/M0_M1.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/lcd/M117.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/lcd/M145.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/lcd/M250.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/lcd/M251.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/lcd/M256.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/lcd/M300.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/lcd/M414.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/lcd/M73.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/lcd/M995.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/motion/G0_G1.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/motion/G2_G3.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/motion/G4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/motion/G5.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/motion/G6.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/motion/G80.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/motion/M290.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/parser.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/probe/G30.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/probe/G31_G32.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/probe/G38.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/probe/M401_M402.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/probe/M851.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/probe/M951.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/queue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/scara/M360-M364.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M1001.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M20.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M21_M22.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M23.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M24_M25.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M26.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M27.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M28_M29.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M30.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M32.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M33.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M34.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M524.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M808.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/sd/M928.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/stats/M31.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/stats/M75-M78.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/temp/M104_M109.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/temp/M105.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/temp/M106_M107.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/temp/M140_M190.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/temp/M141_M191.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/temp/M143_M193.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/temp/M155.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/temp/M303.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/units/G20_G21.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/units/M149.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/gcode/units/M82_M83.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/HD44780/lcdprint_hd44780.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/HD44780/marlinui_HD44780.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/TFTGLCD/lcdprint_TFTGLCD.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/TFTGLCD/marlinui_TFTGLCD.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/lcdprint_u8g.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/marlinui_DOGM.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/status_screen_DOGM.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/status_screen_lite_ST7920.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/u8g_dev_ssd1306_sh1106_128x64_I2C.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/u8g_dev_ssd1309_12864.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/u8g_dev_st7565_64128n_HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/u8g_dev_st7920_128x64_HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/u8g_dev_tft_upscale_from_128x64.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/u8g_dev_uc1701_mini12864_HAL.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/u8g_fontutf8.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dogm/ultralcd_st7920_u8glib_rrd_AVR.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dwin/creality_dwin.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dwin/creality_marlinui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dwin/dwin.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/dwin/rotary_encoder.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/anycubic_chiron/FileNavigator.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/anycubic_chiron/Tunes.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/anycubic_chiron/chiron_extui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/anycubic_chiron/chiron_tft.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/anycubic_i3mega/anycubic_extui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/anycubic_i3mega/anycubic_i3mega_lcd.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/dgus/DGUSDisplay.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/dgus/DGUSScreenHandler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/dgus/dgus_extui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/dgus/fysetc/DGUSDisplayDef.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/dgus/fysetc/DGUSScreenHandler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/dgus/hiprecy/DGUSDisplayDef.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/dgus/hiprecy/DGUSScreenHandler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/dgus/mks/DGUSDisplayDef.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/dgus/mks/DGUSScreenHandler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/dgus/origin/DGUSDisplayDef.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/dgus/origin/DGUSScreenHandler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/example/example.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/archim2-flash/flash_storage.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/archim2-flash/media_file_reader.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/bioprinter/advanced_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/bioprinter/confirm_home_e.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/bioprinter/confirm_home_xyz.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/bioprinter/main_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/bioprinter/printing_dialog_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/bioprinter/status_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/bioprinter/tune_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/cocoa_press/advanced_settings_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/cocoa_press/leveling_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/cocoa_press/load_chocolate.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/cocoa_press/main_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/cocoa_press/move_e_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/cocoa_press/move_xyz_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/cocoa_press/preheat_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/cocoa_press/preheat_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/cocoa_press/status_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_extui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/basic/commands.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/basic/spi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/adjuster_widget.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/circular_progress.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/command_processor.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/dl_cache.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/event_loop.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/screen_types.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/sound_player.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/text_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/text_ellipsis.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/tiny_timer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/cyrillic_char_set.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/font_bitmaps.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/font_size_t.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/standard_char_set.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/unicode.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/ftdi_eve_lib/extended/unicode/western_char_set.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/about_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/advanced_settings_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/alert_dialog_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/backlash_compensation_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/base_numeric_adjustment_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/base_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/bed_mesh_base.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/bed_mesh_edit_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/bed_mesh_view_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/boot_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/case_light_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/change_filament_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/confirm_abort_print_dialog_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/confirm_auto_calibration_dialog_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/confirm_erase_flash_dialog_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/confirm_start_print_dialog_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/confirm_user_request_alert_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/custom_user_menus.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/default_acceleration_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/developer_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/dialog_box_base_class.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/display_tuning_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/endstop_state_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/feedrate_percent_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/filament_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/filament_runout_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/files_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/flow_percent_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/interface_settings_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/interface_sounds_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/jerk_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/junction_deviation_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/kill_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/language_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/leveling_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/linear_advance_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/lock_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/main_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/max_acceleration_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/max_velocity_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/media_player_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/move_axis_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/nozzle_offsets_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/nudge_nozzle_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/restore_failsafe_dialog_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/save_settings_dialog_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/spinner_dialog_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/statistics_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/status_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/stepper_bump_sensitivity_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/stepper_current_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/steps_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/stress_test_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/string_format.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/temperature_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/touch_calibration_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/touch_registers_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/tune_menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/widget_demo_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/generic/z_offset_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/language/language.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/screens.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ftdi_eve_touch_ui/theme/sounds.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/malyan/malyan.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/malyan/malyan_extui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/SPIFlashStorage.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/SPI_TFT.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_about.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_acceleration_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_advance_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_auto_level_offset_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_baby_stepping.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_change_speed.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_cloud_bind.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_dialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_eeprom_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_encoder_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_error_message.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_extrusion.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_fan.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_filament_change.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_filament_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_gcode.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_home.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_homing_sensitivity_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_jerk_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_keyboard.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_language.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_level_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_machine_para.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_machine_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_manuaLevel.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_max_feedrate_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_media_select.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_more.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_motor_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_move_motor.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_number_key.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_operation.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_pause_message.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_pause_position.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_preHeat.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_print_file.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_printing.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_ready_print.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_set.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_step_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_tmc_current_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_tmc_step_mode_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_tool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_touch_calibration.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_tramming_pos_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_ui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_wifi.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_wifi_list.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_wifi_settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/draw_wifi_tips.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/gb2312_puhui16.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/irq_overrid.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/mks_hardware.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/pic_manager.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/printer_operation.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/tft_lvgl_configuration.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/tft_multi_language.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/wifiSerial_STM32.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/wifiSerial_STM32F1.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/wifi_module.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/mks_ui/wifi_upload.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/nextion/FileNavigator.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/nextion/nextion_extui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/nextion/nextion_tft.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/extui/ui_api.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/fontutils.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/lcdprint.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/marlinui.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/game/brickout.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/game/game.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/game/invaders.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/game/maze.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/game/snake.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_advanced.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_backlash.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_bed_corners.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_bed_leveling.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_cancelobject.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_configuration.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_delta_calibrate.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_filament.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_game.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_info.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_job_recovery.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_language.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_led.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_media.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_mixer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_mmu2.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_motion.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_password.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_power_monitor.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_probe_offset.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_spindle_laser.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_temperature.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_tmc.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_touch_screen.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_tramming.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_tune.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/menu/menu_ubl.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/canvas.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/draw_media_select.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/fontdata/fontdata_10x20.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/fontdata/fontdata_ISO10646_1.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/fontdata/helvetica_12_bold.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/fontdata/helvetica_14.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/fontdata/helvetica_18.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/fontdata/profont_22.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/back_32x32x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/background_320x30x16.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/bootscreen_112x38x1.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/bootscreen_195x59x16.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/bootscreen_228x255x2.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/bootscreen_228x255x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/bootscreen_320x240x16.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/bootscreen_480x320x16.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/btn_rounded_42x39x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/btn_rounded_64x52x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/cancel_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/chamber_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/confirm_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/decrease_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/directory_32x32x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/down_32x32x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/fan_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/fan_fast_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/fan_slow_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/feedrate_32x32x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/flowrate_32x32x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/heated_bed_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/home_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/hotend_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/increase_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/left_32x32x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/leveling_32x32x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/menu_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/pause_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/refresh_32x32x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/right_32x32x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/sd_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/settings_64x64x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/slider_8x16x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/images/up_32x32x4.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/tft.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/tft_image.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/tft_queue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/tft_string.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/touch.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/ui_1024x600.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/ui_320x240.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/ui_480x320.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft/ui_common.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft_io/tft_io.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/tft_io/touch_calibration.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/lcd/touch/touch_buttons.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/BL24CXX.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/L64XX/L64XX_Marlin.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/W25Qxx.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/buzzer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/crc16.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/heatshrink/heatshrink_decoder.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/hex_print.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/least_squares_fit.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/nozzle.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/numtostr.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/stopwatch.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/libs/vector_3.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/delta.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/endstops.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/motion.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/planner.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/planner_bezier.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/printcounter.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/probe.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/scara.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/servo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/settings.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/stepper.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/stepper/L64xx.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/stepper/TMC26X.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/stepper/indirection.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/stepper/trinamic.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/temperature.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/module/tool_change.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/Sd2Card.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/SdBaseFile.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/SdFatUtil.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/SdFile.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/SdVolume.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/cardreader.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/usb_flashdrive/Sd2Card_FlashDrive.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/usb_flashdrive/lib-uhs2/Usb.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/usb_flashdrive/lib-uhs2/masstorage.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/usb_flashdrive/lib-uhs2/message.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/usb_flashdrive/lib-uhs2/parsetools.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/src/sd/usb_flashdrive/lib-uhs2/usbhost.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"path" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/Marlin/Marlin.ino",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "EXECUTABLE"
+}

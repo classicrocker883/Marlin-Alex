@@ -1,0 +1,128 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "libuno_EEPROM.a"
+		}
+	],
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"setup_arduino_library",
+			"setup_arduino_libraries",
+			"generate_arduino_firmware",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"marlin-cmake/Platform/Arduino.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 123,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 524,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 1104,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1039,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 1068,
+				"parent" : 3
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -Os -w -std=gnu++11 -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD"
+				},
+				{
+					"fragment" : " -DF_CPU=16000000L -DARDUINO=10005 -DARDUINO_ -DARDUINO_ARCH_AVR -mmcu=atmega328p -I\"/usr/share/arduino/hardware/arduino/cores/arduino\" -I\"/usr/share/arduino/libraries\" -I\"/usr/share/arduino/hardware/arduino/variants/standard\"  -I\"/usr/share/arduino/libraries/EEPROM\" -I\"/usr/share/arduino/libraries/EEPROM/src\" -I\"/usr/share/arduino/libraries/EEPROM/utility\"  -I\"/usr/share/arduino/libraries/Wire\" -I\"/usr/share/arduino/libraries/Wire/src\" -I\"/usr/share/arduino/libraries/SPI\" -I\"/usr/share/arduino/libraries/SPI/src\" -I\"/usr/share/arduino/libraries/Servo\" -I\"/usr/share/arduino/libraries/Servo/src\" -I\"/usr/share/arduino/libraries/EEPROM\" -I\"/usr/share/arduino/libraries/EEPROM/src\" -I\"/usr/share/arduino/libraries/WiFi\" -I\"/usr/share/arduino/libraries/WiFi/src\" -I\"/usr/share/arduino/libraries/SoftwareSerial\" -I\"/usr/share/arduino/libraries/SoftwareSerial/src\""
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "uno_CORE::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "uno_EEPROM::@6890427a1f51a3e7e1df",
+	"name" : "uno_EEPROM",
+	"nameOnDisk" : "libuno_EEPROM.a",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "/usr/share/arduino/libraries/EEPROM/EEPROM.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "/usr/share/arduino/libraries/EEPROM/EEPROM.h",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

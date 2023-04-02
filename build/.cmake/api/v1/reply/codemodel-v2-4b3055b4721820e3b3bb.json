@@ -1,0 +1,150 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Marlin",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Marlin::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Marlin-96d24dd79887a0ebbaa1.json",
+					"name" : "Marlin",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Marlin-size::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Marlin-size-daeea6d8d01f30c4aa78.json",
+					"name" : "Marlin-size",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Marlin-upload::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Marlin-upload-43762d8bed3da088a992.json",
+					"name" : "Marlin-upload",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uno_CORE::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uno_CORE-c59f7855f95e8db56595.json",
+					"name" : "uno_CORE",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uno_EEPROM::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uno_EEPROM-7577c3a3c967a5e77f9f.json",
+					"name" : "uno_EEPROM",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uno_SPI::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uno_SPI-d024360c272d8a734d9d.json",
+					"name" : "uno_SPI",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uno_Servo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uno_Servo-2d1ee201ea231ed1fb24.json",
+					"name" : "uno_Servo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uno_SoftwareSerial::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uno_SoftwareSerial-86214baab8956bc80407.json",
+					"name" : "uno_SoftwareSerial",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uno_WiFi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uno_WiFi-8018bbe6cbeea2abc881.json",
+					"name" : "uno_WiFi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uno_Wire::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uno_Wire-37e97030be6b85af471b.json",
+					"name" : "uno_Wire",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "upload::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-upload-b4cc5437a67d6c074260.json",
+					"name" : "upload",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/build",
+		"source" : "/home/andrew/Downloads/Marlin-AlexB/Marlin-main/buildroot/share/cmake"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

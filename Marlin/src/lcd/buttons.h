@@ -45,7 +45,8 @@
   #define ENCODER_PHASE_3 1
 #endif
 
-#if ANY(HAS_DIGITAL_BUTTONS, DWIN_CREALITY_LCD)
+//#if ANY(HAS_DIGITAL_BUTTONS, DWIN_CREALITY_LCD)
+#if IS_RRW_KEYPAD
 
   #define EN_KEYPAD_F1      _BV(BTN_OFFSET + BLEN_KEYPAD_F1)
   #define EN_KEYPAD_F2      _BV(BTN_OFFSET + BLEN_KEYPAD_F2)
@@ -65,7 +66,7 @@
   #endif
 #endif
 
-#if ANY(HAS_DIGITAL_BUTTONS, DWIN_CREALITY_LCD)
+#if EITHER(HAS_DIGITAL_BUTTONS, DWIN_CREALITY_LCD)
   // Wheel spin pins where BA is 00, 10, 11, 01 (1 bit always changes)
   #define BLEN_A 0
   #define BLEN_B 1

@@ -38,7 +38,7 @@ enum processID : uint8_t {
 enum PopupID : uint8_t {
   Pause, Stop, Resume, SaveLevel, ETemp, ConfFilChange, PurgeMore, MeshSlot,
   Level, Home, MoveWait, Heating,  FilLoad, FilChange, TempWarn, Runout, PIDWait, Resuming, ManualProbing,
-  FilInsert, HeaterTime, UserInput, LevelError, InvalidMesh, UI, Complete
+  FilInsert, HeaterTime, UserInput, LevelError, InvalidMesh, UI, Complete, ConfirmStartPrint
 };
 
 enum menuID : uint8_t {
@@ -264,8 +264,13 @@ enum colorID : uint8_t {
 #define BarFill_Color       0x10E4  // Fill color of progress bar
 #define Select_Color        0x8430 // Selected color
 #define Check_Color         Color_Voxelab_Red  // Check-box check color
-#define Confirm_Color   	  Color_Voxelab_Red
+#define Confirm_Color   	  Color_Voxelab_Red  //_Y_HALF_BED
 #define Cancel_Color        0x3186
+
+#if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+#define Thumnail_Icon       0x00
+#define Thumnail_Preview    0x01
+#endif
 
 class CrealityDWINClass {
 
@@ -289,6 +294,9 @@ public:
     uint8_t status_area_text : 4;
     uint8_t coordinates_text : 4;
     uint8_t coordinates_split_line : 4;
+    #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+      bool show_gcode_thumbnails : 1;
+    #endif
   } eeprom_settings;
 
   const char * const color_names[11] = {"Default", "White", "Green", "Cyan", "Blue", "Magenta", "Red", "Orange", "Yellow", "Brown", "Black"};
@@ -301,7 +309,7 @@ public:
   uint16_t GetColor(uint8_t color, uint16_t original, bool light=false);
   void Draw_Checkbox(uint8_t row, bool value);
   void Draw_Title(const char * title);
-  void Draw_Menu_Item(uint8_t row, uint8_t icon=0, const char * const label1=NULL, const char * const label2=NULL, bool more=false, bool centered=false);
+  void Draw_Menu_Item(uint8_t row, uint8_t icon=0, const char * const label1=NULL, const char * const label2=NULL, bool more=false, bool centered=false, bool onlyCachedFileIcon=false);
   void Draw_Menu(uint8_t menu, uint8_t select=0, uint8_t scroll=0);
   void Redraw_Menu(bool lastprocess=true, bool lastselection=false, bool lastmenu=false);
   void Redraw_Screen();
@@ -315,13 +323,17 @@ public:
   void Draw_Print_ProgressRemain();
   void Draw_Print_ProgressElapsed();
   void Draw_Print_confirm();
-  void Draw_SD_Item(uint8_t item, uint8_t row);
-  void Draw_SD_List(bool removed=false);
+  void Draw_SD_Item(uint8_t item, uint8_t row, bool onlyCachedFileIcon=false);
+  void Draw_SD_List(bool removed=false, uint8_t select=0, uint8_t scroll=0, bool onlyCachedFileIcon=false);
   void Draw_Status_Area(bool icons=false);
   void Draw_Popup(const char * line1, const char * line2, const char * line3, uint8_t mode, uint8_t icon=0);
   void Popup_Select();
   void Update_Status_Bar(bool refresh=false);
 
+  #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+  bool find_and_decode_gcode_preview(char *name, uint8_t preview_type, uint16_t *address, bool onlyCachedFileIcon=false);
+  #endif
+  
   #if ENABLED(AUTO_BED_LEVELING_UBL)
     void Draw_Bed_Mesh(int16_t selected = -1, uint8_t gridline_width = 1, uint16_t padding_x = 8, uint16_t padding_y_top = 40 + 53 - 7);
     void Set_Mesh_Viewer_Status();

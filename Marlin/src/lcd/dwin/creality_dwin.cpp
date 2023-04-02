@@ -40,6 +40,9 @@
 #include "../../libs/buzzer.h"
 #include "../../inc/Conditionals_post.h"
 
+#include "../../gcode/gcode.h"
+#include "../../core/macros.h"
+
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
   #include "../../feature/pause.h"
 #endif
@@ -52,7 +55,12 @@
   #include "../../feature/host_actions.h"
 #endif
 
-#if ANY(AUTO_BED_LEVELING_BILINEAR, AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_3POINT) && DISABLED(PROBE_MANUALLY)
+#if ENABLED(MESH_BED_LEVELING)
+  #define PROBE_MANUALLY
+#endif
+
+#if ANY(AUTO_BED_LEVELING_BILINEAR, AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_3POINT) 
+
   #define HAS_ONESTEP_LEVELING 1
 #endif
 
@@ -85,11 +93,18 @@
   #include "../../feature/powerloss.h"
 #endif
 
+#if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+#include "../../libs/base64.hpp"
+#include <map>
+#include <string>
+using namespace std;
+#endif
+
 #define MACHINE_SIZE STRINGIFY(X_BED_SIZE) "x" STRINGIFY(Y_BED_SIZE) "x" STRINGIFY(Z_MAX_POS)
 
 #define CORP_WEBSITE_E "github.com/alexqzd"
 
-#define BUILD_NUMBER "1.3.5"
+#define BUILD_NUMBER "1.3.6 Beta 2"
 
 #define DWIN_FONT_MENU font8x16
 #define DWIN_FONT_STAT font10x20
@@ -182,6 +197,14 @@ float corner_pos;
 
 bool probe_deployed = false;
 
+#if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+std::map<string, int> image_cache;
+uint16_t next_available_address = 1;
+static millis_t thumbtime = 0;
+#define SCROLL_WAIT 1000
+#endif
+static millis_t name_scroll_time = 0;
+
 CrealityDWINClass CrealityDWIN;
 
 #if HAS_MESH
@@ -256,7 +279,7 @@ CrealityDWINClass CrealityDWIN;
       }
 
     #else
-      bed_mesh_t &mesh_z_values = z_values;
+      bed_mesh_t &mesh_z_values = mbl.z_values;
 
       void manual_value_update() {
         sprintf_P(cmd, PSTR("G29 I%i J%i Z%s"), mesh_x, mesh_y, dtostrf(current_position.z, 1, 3, str_1));
@@ -464,13 +487,20 @@ void CrealityDWINClass::Draw_Title(const char * title) {
   DWIN_Draw_String(false, false, DWIN_FONT_HEAD, GetColor(eeprom_settings.menu_top_txt, Color_White, false), Color_Bg_Blue, (DWIN_WIDTH - strlen(title) * STAT_CHR_W) / 2, 5, title);
 }
 
-void CrealityDWINClass::Draw_Menu_Item(uint8_t row, uint8_t icon/*=0*/, const char * label1, const char * label2, bool more/*=false*/, bool centered/*=false*/) {
+uint16_t image_address;
+void CrealityDWINClass::Draw_Menu_Item(uint8_t row, uint8_t icon/*=0*/, const char * label1, const char * label2, bool more/*=false*/, bool centered/*=false*/, bool onlyCachedFileIcon/*=false*/) {
   const uint8_t label_offset_y = !(label1 && label2) ? 0 : MENU_CHR_H * 3 / 5;
   const uint8_t label1_offset_x = !centered ? LBLX : LBLX * 4/5 + max(LBLX * 1U/5, (DWIN_WIDTH - LBLX - (label1 ? strlen(label1) : 0) * MENU_CHR_W) / 2);
   const uint8_t label2_offset_x = !centered ? LBLX : LBLX * 4/5 + max(LBLX * 1U/5, (DWIN_WIDTH - LBLX - (label2 ? strlen(label2) : 0) * MENU_CHR_W) / 2);
   if (label1) DWIN_Draw_String(false, false, DWIN_FONT_MENU, Color_White, Color_Bg_Black, label1_offset_x, MBASE(row) - 1 - label_offset_y, label1); // Draw Label
   if (label2) DWIN_Draw_String(false, false, DWIN_FONT_MENU, Color_White, Color_Bg_Black, label2_offset_x, MBASE(row) - 1 + label_offset_y, label2); // Draw Label
+  #ifdef DWIN_CREALITY_LCD_GCODE_PREVIEW
+  if (eeprom_settings.show_gcode_thumbnails && icon == ICON_File && find_and_decode_gcode_preview(card.filename, Thumnail_Icon, &image_address, onlyCachedFileIcon))
+    DWIN_SRAM_Memory_Icon_Display(9, MBASE(row) - 18, image_address);
+  else if (icon) DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw Menu Icon
+  #else
   if (icon) DWIN_ICON_Show(ICON, icon, 26, MBASE(row) - 3);   //Draw Menu Icon
+  #endif
   if (more) DWIN_ICON_Show(ICON, ICON_More, 226, MBASE(row) - 3); // Draw More Arrow
   DWIN_Draw_Line(GetColor(eeprom_settings.menu_split_line, Line_Color, true), 16, MBASE(row) + 33, 256, MBASE(row) + 33); // Draw Menu Line
 }
@@ -506,7 +536,7 @@ void CrealityDWINClass::Draw_Menu(uint8_t menu, uint8_t select/*=0*/, uint8_t sc
   Clear_Screen();
   Draw_Title(Get_Menu_Title(menu));
   LOOP_L_N(i, TROWS) Menu_Item_Handler(menu, i + scrollpos);
-  DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
+  DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 31);
 }
 
 void CrealityDWINClass::Redraw_Menu(bool lastprocess/*=true*/, bool lastselection/*=false*/, bool lastmenu/*=false*/) {
@@ -521,7 +551,7 @@ void CrealityDWINClass::Redraw_Menu(bool lastprocess/*=true*/, bool lastselectio
       Draw_Print_Screen();
       break;
     case File:
-      Draw_SD_List();
+      Draw_SD_List(false, (lastselection) ? last_selection : 0, (lastselection) ? scrollpos : 0, true);
       break;
     default:
       break;
@@ -564,7 +594,7 @@ void CrealityDWINClass::Main_Menu_Icons() {
     DWIN_ICON_Show(ICON, ICON_Control_0, 17, 246);
     DWIN_Draw_String(false, false, DWIN_FONT_MENU, Color_White, Color_Bg_Blue, 43, 317, F("Control"));
   }
-  #if ANY(HAS_ONESTEP_LEVELING, AUTO_BED_LEVELING_UBL, PROBE_MANUALLY) 
+  #if ANY(HAS_ONESTEP_LEVELING, AUTO_BED_LEVELING_UBL, MESH_BED_LEVELING) 
     if (selection == 3) {
       DWIN_ICON_Show(ICON, ICON_Leveling_1, 145, 246);
       DWIN_Draw_Rectangle(0, GetColor(eeprom_settings.highlight_box, Color_Voxelab_Red), 145, 246, 254, 345);
@@ -739,7 +769,7 @@ void CrealityDWINClass::Draw_Print_confirm() {
   DWIN_Draw_Rectangle(0, GetColor(eeprom_settings.highlight_box, Color_Voxelab_Red), 85, 281, 188, 322);
 }
 
-void CrealityDWINClass::Draw_SD_Item(uint8_t item, uint8_t row) {
+void CrealityDWINClass::Draw_SD_Item(uint8_t item, uint8_t row, bool onlyCachedFileIcon/*=false*/) {
   if (item == 0) {
     if (card.flag.workDirIsRoot)
       Draw_Menu_Item(0, ICON_Back, "Back");
@@ -760,26 +790,28 @@ void CrealityDWINClass::Draw_SD_Item(uint8_t item, uint8_t row) {
     if (pos > max)
       LOOP_S_L_N(i, len-3, len) name[i] = '.';
     name[len] = '\0';
-    Draw_Menu_Item(row, card.flag.filenameIsDir ? ICON_More : ICON_File, name);
+    Draw_Menu_Item(row, card.flag.filenameIsDir ? ICON_More : ICON_File, name, NULL, NULL, false, onlyCachedFileIcon);
   }
 }
 
-void CrealityDWINClass::Draw_SD_List(bool removed/*=false*/) {
+void CrealityDWINClass::Draw_SD_List(bool removed/*=false*/, uint8_t select/*=0*/, uint8_t scroll/*=0*/, bool onlyCachedFileIcon/*=false*/) {
   Clear_Screen();
   Draw_Title("Select File");
-  selection = 0;
-  scrollpos = 0;
+  selection = min((int)select, card.get_num_Files()+1);
+  scrollpos = scroll;
+  if (selection-scrollpos > MROWS)
+    scrollpos = selection - MROWS;
   process = File;
   if (card.isMounted() && !removed) {
     LOOP_L_N(i, _MIN(card.get_num_Files()+1, TROWS))
-      Draw_SD_Item(i, i);
+      Draw_SD_Item(i+scrollpos, i, onlyCachedFileIcon);
   }
   else {
     Draw_Menu_Item(0, ICON_Back, "Back");
     DWIN_Draw_Rectangle(1, Color_Bg_Red, 10, MBASE(3) - 10, DWIN_WIDTH - 10, MBASE(4));
     DWIN_Draw_String(false, false, font16x32, Color_Yellow, Color_Bg_Red, ((DWIN_WIDTH) - 8 * 16) / 2, MBASE(3), "No Media");
   }
-  DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(0) - 18, 14, MBASE(0) + 33);
+  DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 8, MBASE(selection-scrollpos) + 31);
 }
 
 void CrealityDWINClass::Draw_Status_Area(bool icons/*=false*/) {
@@ -925,7 +957,7 @@ void CrealityDWINClass::Draw_Status_Area(bool icons/*=false*/) {
 
 void CrealityDWINClass::Draw_Popup(const char *line1, const char *line2,const char *line3, uint8_t mode, uint8_t icon/*=0*/) {
   if (process != Confirm && process != Popup && process != Wait) last_process = process;
-  if ((process == Menu || process == Wait) && mode == Popup) last_selection = selection;
+  if ((process == Menu || process == Wait || process == File) && mode == Popup) last_selection = selection;
   process = mode;
   Clear_Screen();
   DWIN_Draw_Rectangle(0, Color_White, 13, 59, 259, 351);
@@ -2849,7 +2881,8 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
       #define VISUAL_BRIGHTNESS (VISUAL_BACKLIGHT + 1)
       #define VISUAL_TIME_FORMAT (VISUAL_BRIGHTNESS + 1)
       #define VISUAL_COLOR_THEMES (VISUAL_TIME_FORMAT + 1)
-      #define VISUAL_TOTAL VISUAL_COLOR_THEMES
+      #define VISUAL_FILE_TUMBNAILS (VISUAL_COLOR_THEMES + ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW))
+      #define VISUAL_TOTAL VISUAL_FILE_TUMBNAILS
 
       switch (item) {
         case VISUAL_BACK:
@@ -2888,13 +2921,25 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
           }
           break;
         case VISUAL_COLOR_THEMES:
-        if (draw) {
+          if (draw) {
             Draw_Menu_Item(row, ICON_MaxSpeed, "UI Color Settings", NULL, true);
           }
           else {
             Draw_Menu(ColorSettings);
           }
-        break;  
+          break;
+        #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+          case VISUAL_FILE_TUMBNAILS:
+            if (draw) {
+              Draw_Menu_Item(row, ICON_PrintTime, "Show file thumbnails");
+              Draw_Checkbox(row, eeprom_settings.show_gcode_thumbnails);
+            }
+            else {
+              eeprom_settings.show_gcode_thumbnails = !eeprom_settings.show_gcode_thumbnails;
+              Draw_Checkbox(row, eeprom_settings.show_gcode_thumbnails);
+            }
+            break;
+        #endif
       }
       break;
     case ColorSettings:
@@ -3861,6 +3906,7 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
         }
         break;
     #endif
+    
     #if ENABLED(PROBE_MANUALLY)
       case ManualMesh:
 
@@ -3976,7 +4022,8 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
     case Tune:
 
       #define TUNE_BACK 0
-      #define TUNE_SPEED (TUNE_BACK + 1)
+      #define TUNE_BACKLIGHT_OFF (TUNE_BACK + 1)
+      #define TUNE_SPEED (TUNE_BACKLIGHT_OFF + 1)
       #define TUNE_FLOW (TUNE_SPEED + ENABLED(HAS_HOTEND))
       #define TUNE_HOTEND (TUNE_FLOW + ENABLED(HAS_HOTEND))
       #define TUNE_BED (TUNE_HOTEND + ENABLED(HAS_HEATED_BED))
@@ -3986,8 +4033,7 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
       #define TUNE_ZDOWN (TUNE_ZUP + ENABLED(HAS_ZOFFSET_ITEM))
       #define TUNE_CHANGEFIL (TUNE_ZDOWN + ENABLED(FILAMENT_LOAD_UNLOAD_GCODES))
       #define TUNE_FILSENSORENABLED (TUNE_CHANGEFIL + ENABLED(FILAMENT_RUNOUT_SENSOR))
-      #define TUNE_BACKLIGHT_OFF (TUNE_FILSENSORENABLED + 1)
-      #define TUNE_BACKLIGHT (TUNE_BACKLIGHT_OFF + 1)
+      #define TUNE_BACKLIGHT (TUNE_FILSENSORENABLED + 1)
       #define TUNE_TOTAL TUNE_BACKLIGHT
 
       switch (item) {
@@ -3999,6 +4045,14 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
             Draw_Print_Screen();
           }
           break;
+        case TUNE_BACKLIGHT_OFF:
+          if (draw) {
+            Draw_Menu_Item(row, ICON_Brightness, "Display Off");
+          }
+          else {
+            ui.set_brightness(0);
+          }
+          break;          
         case TUNE_SPEED:
           if (draw) {
             Draw_Menu_Item(row, ICON_Speed, "Print Speed");
@@ -4107,14 +4161,6 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
             }
             break;
         #endif
-        case TUNE_BACKLIGHT_OFF:
-          if (draw) {
-            Draw_Menu_Item(row, ICON_Brightness, "Display Off");
-          }
-          else {
-            ui.set_brightness(0);
-          }
-          break;
         case TUNE_BACKLIGHT:
           if (draw) {
             Draw_Menu_Item(row, ICON_Brightness, "LCD Brightness");
@@ -4552,6 +4598,9 @@ void CrealityDWINClass::Popup_Handler(PopupID popupid, bool option/*=false*/) {
     case Resuming:
       Draw_Popup("Resuming Print", "Please wait until done.", "", Wait, ICON_BLTouch);
       break;
+    case ConfirmStartPrint:
+      Draw_Popup(option ? "Loading Preview..." : "Print file?", "", "", Popup);
+      break;
     default:
       break;
   }
@@ -4627,7 +4676,7 @@ void CrealityDWINClass::Menu_Control() {
       DWIN_Frame_AreaMove(1, 2, MLINE, Color_Bg_Black, 0, 31, DWIN_WIDTH, 349);
       Menu_Item_Handler(active_menu, selection);
     }
-    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
+    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 31);
   }
   else if (encoder_diffState == ENCODER_DIFF_CCW && selection > 0) {
     DWIN_Draw_Rectangle(1, Color_Bg_Black, 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
@@ -4637,7 +4686,7 @@ void CrealityDWINClass::Menu_Control() {
       DWIN_Frame_AreaMove(1, 3, MLINE, Color_Bg_Black, 0, 31, DWIN_WIDTH, 349);
       Menu_Item_Handler(active_menu, selection);
     }
-    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
+    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 31);
   }
   else if (encoder_diffState == ENCODER_DIFF_ENTER)
     Menu_Item_Handler(active_menu, selection, false);
@@ -4763,10 +4812,117 @@ void CrealityDWINClass::Option_Control() {
   DWIN_UpdateLCD();
 }
 
+#if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+bool CrealityDWINClass::find_and_decode_gcode_preview(char *name, uint8_t preview_type, uint16_t *address, bool onlyCachedFileIcon/*=false*/) {
+  // Won't work if we don't copy the name
+  // for (char *c = &name[0]; *c; c++) *c = tolower(*c);
+
+  char file_name[strlen(name) + 1]; // Room for filename and null
+  sprintf_P(file_name, "%s", name);
+  char file_path[strlen(name) + 1 + MAXPATHNAMELENGTH]; // Room for path, filename and null
+  sprintf_P(file_path, "%s/%s", card.getWorkDirName(), file_name);
+  
+  // Check if cached
+  bool use_cache = preview_type == Thumnail_Icon;
+  if (use_cache) {
+    auto it = image_cache.find(file_path+to_string(Thumnail_Icon));
+    if (it != image_cache.end()) { // already cached
+      if (it->second == 0) return false; // no image available
+      *address = it->second;
+      return true;
+    } else if (onlyCachedFileIcon) return false;
+  }
+  
+  const uint16_t buff_size = 256;
+  char public_buf[buff_size+1];
+  uint8_t output_buffer[6144];
+  uint32_t position_in_file = 0;
+  char *encoded_image = NULL;
+  
+  card.openFileRead(file_name);
+  uint8_t n_reads = 0;
+  int16_t data_read = card.read(public_buf, buff_size);
+  card.setIndex(card.getIndex()+data_read);
+  char key[31] = "";
+  switch (preview_type) {
+    case Thumnail_Icon: strcpy_P(key, "; jpeg thumbnail begin 50x50"); break;
+    case Thumnail_Preview: strcpy_P(key, "; jpeg thumbnail begin 217x217"); break;
+  }
+  while(n_reads < 16 && data_read) { // Max 16 passes so we don't loop forever
+  if (Encoder_ReceiveAnalyze() != ENCODER_DIFF_NO) return false;
+    encoded_image = strstr(public_buf, key);
+    if (encoded_image) {
+      uint32_t index_bw = &public_buf[buff_size] - encoded_image;
+      position_in_file = card.getIndex() - index_bw;
+      break;
+    }
+    
+    card.setIndex(card.getIndex()-32);
+    data_read = card.read(public_buf, buff_size);
+    card.setIndex(card.getIndex()+data_read);
+
+    n_reads++;
+  }
+
+  // If we found the image, decode it
+  if (encoded_image) {
+  memset(public_buf, 0, sizeof(public_buf));
+  card.setIndex(position_in_file+23); // ; thumbnail begin <move here>220x124 99999
+  while (card.get() != ' '); // ; thumbnail begin 220x124 <move here>99999
+
+  char size_buf[10];
+  for (size_t i = 0; i < sizeof(size_buf); i++)
+  {
+    uint8_t c = card.get();
+    if (ISEOL(c)) {
+      size_buf[i] = 0;
+      break;
+    }
+    else
+      size_buf[i] = c;
+  }
+  uint16_t image_size = atoi(size_buf);
+  uint16_t stored_in_buffer = 0;
+  uint8_t encoded_image_data[image_size+1];
+  while (stored_in_buffer < image_size) {
+    char c = card.get();
+    if (ISEOL(c) || c == ';' || c == ' ') {
+      continue;
+    }
+    else {
+      encoded_image_data[stored_in_buffer] = c;
+      stored_in_buffer++;
+    }
+  }
+
+  encoded_image_data[stored_in_buffer] = 0;
+  unsigned int output_size = decode_base64(encoded_image_data, output_buffer);
+  if (next_available_address + output_size >= 0x7530) { // cache is full, invalidate it
+    next_available_address = 0;
+    image_cache.clear();
+    SERIAL_ECHOLNPGM("Preview cache full, cleaning up...");
+  }
+  DWIN_Save_JPEG_in_SRAM((uint8_t *)output_buffer, output_size, next_available_address);
+  *address = next_available_address;
+  if(use_cache) {
+    image_cache[file_path+to_string(preview_type)] = next_available_address;
+    next_available_address += output_size + 1;
+  }
+  } else if (use_cache)  // If we didn't find the image, but we are using the cache, mark it as image not available
+  {
+    image_cache[file_path+to_string(preview_type)] = 0;
+  }
+  
+  card.closefile();
+  gcode.process_subcommands_now_P(PSTR("M117")); // Clear the message sent by the card API
+  return encoded_image;
+}
+#endif // DWIN_CREALITY_LCD_GCODE_PREVIEW
+
 void CrealityDWINClass::File_Control() {
   ENCODER_DiffState encoder_diffState = Encoder_ReceiveAnalyze();
   static uint8_t filescrl = 0;
-  if (encoder_diffState == ENCODER_DIFF_NO) {
+  if (ELAPSED(millis(), name_scroll_time), encoder_diffState == ENCODER_DIFF_NO) {
     if (selection > 0) {
       card.getfilename_sorted(SD_ORDER(selection-1, card.get_num_Files()));
       char * const filename = card.longest_filename();
@@ -4792,7 +4948,7 @@ void CrealityDWINClass::File_Control() {
         }
         name[len] = '\0';
         DWIN_Draw_Rectangle(1, Color_Bg_Black, LBLX, MBASE(selection-scrollpos) - 14, 271, MBASE(selection-scrollpos) + 28);
-        Draw_Menu_Item(selection-scrollpos, card.flag.filenameIsDir ? ICON_More : ICON_File, name);
+        Draw_Menu_Item(selection-scrollpos, card.flag.filenameIsDir ? ICON_More : ICON_File, name, NULL, NULL, false, true);
         if (-pos >= MENU_CHAR_LIMIT)
           filescrl = 0;
         filescrl++;
@@ -4805,29 +4961,37 @@ void CrealityDWINClass::File_Control() {
     DWIN_Draw_Rectangle(1, Color_Bg_Black, 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
     if (selection > 0) {
       DWIN_Draw_Rectangle(1, Color_Bg_Black, LBLX, MBASE(selection-scrollpos) - 14, 271, MBASE(selection-scrollpos) + 28);
-      Draw_SD_Item(selection, selection-scrollpos);
+      Draw_SD_Item(selection, selection-scrollpos, true);
     }
     filescrl = 0;
     selection++; // Select Down
     if (selection > scrollpos+MROWS) {
       scrollpos++;
       DWIN_Frame_AreaMove(1, 2, MLINE, Color_Bg_Black, 0, 31, DWIN_WIDTH, 349);
-      Draw_SD_Item(selection, selection-scrollpos);
+      Draw_SD_Item(selection, selection-scrollpos, true);
     }
-    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
+    #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+    thumbtime = millis() + SCROLL_WAIT;
+    name_scroll_time = millis() + SCROLL_WAIT;
+    #endif
+    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 8, MBASE(selection-scrollpos) + 31);
   }
   else if (encoder_diffState == ENCODER_DIFF_CCW && selection > 0) {
     DWIN_Draw_Rectangle(1, Color_Bg_Black, 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
     DWIN_Draw_Rectangle(1, Color_Bg_Black, LBLX, MBASE(selection-scrollpos) - 14, 271, MBASE(selection-scrollpos) + 28);
-    Draw_SD_Item(selection, selection-scrollpos);
+    Draw_SD_Item(selection, selection-scrollpos, true);
     filescrl = 0;
     selection--; // Select Up
     if (selection < scrollpos) {
       scrollpos--;
       DWIN_Frame_AreaMove(1, 3, MLINE, Color_Bg_Black, 0, 31, DWIN_WIDTH, 349);
-      Draw_SD_Item(selection, selection-scrollpos);
+      Draw_SD_Item(selection, selection-scrollpos, true);
     }
-    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 14, MBASE(selection-scrollpos) + 33);
+    #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+    thumbtime = millis() + SCROLL_WAIT;
+    name_scroll_time = millis() + SCROLL_WAIT;
+    #endif
+    DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 8, MBASE(selection-scrollpos) + 31);
   }
   else if (encoder_diffState == ENCODER_DIFF_ENTER) {
     if (selection == 0) {
@@ -4847,7 +5011,16 @@ void CrealityDWINClass::File_Control() {
         Draw_SD_List();
       }
       else {
+        #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+        uint16_t image_address;
+        bool has_preview = find_and_decode_gcode_preview(card.filename, Thumnail_Preview, &image_address);
+        Popup_Handler(ConfirmStartPrint, has_preview);
+        if (has_preview) {
+          DWIN_SRAM_Memory_Icon_Display(28,60,image_address);
+        }
+        #else
         card.openAndPrintFile(card.filename);
+        #endif
       }
     }
   }
@@ -5031,6 +5204,12 @@ void CrealityDWINClass::Popup_Control() {
             if (printing) Popup_Handler(Resuming);
             else Redraw_Menu(true, true, (active_menu==PreheatHotend));
           }
+          break;
+        case ConfirmStartPrint:
+          if (selection==0) 
+            card.openAndPrintFile(card.filename);
+          else
+            Redraw_Menu(true, true, true);
           break;
       #endif
       #if HAS_MESH
@@ -5294,9 +5473,35 @@ void CrealityDWINClass::Screen_Update() {
   static bool mounted = card.isMounted();
   if (mounted != card.isMounted()) {
     mounted = card.isMounted();
+    #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+    image_cache.clear();
+    #endif
     if (process == File)
       Draw_SD_List();
   }
+  #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+  if (eeprom_settings.show_gcode_thumbnails && ELAPSED(millis(), thumbtime)) {
+    thumbtime = millis() + 60000;
+    if (process == File){
+      // Draw_SD_List(!mounted, selection, scrollpos);
+      if (selection-scrollpos > MROWS) scrollpos = selection - MROWS;
+      LOOP_L_N(i, _MIN(card.get_num_Files()+1, TROWS)) {
+        if (Encoder_ReceiveAnalyze() != ENCODER_DIFF_NO) break;
+        if (i+scrollpos == 0) {
+          if (card.flag.workDirIsRoot)
+            Draw_Menu_Item(0, ICON_Back, "Back");
+          else
+            Draw_Menu_Item(0, ICON_Back, "..");
+        } else {
+          card.getfilename_sorted(SD_ORDER(i+scrollpos-1, card.get_num_Files()));
+          Draw_Menu_Item(i, card.flag.filenameIsDir ? ICON_More : ICON_File);
+        }
+        DWIN_UpdateLCD();
+      }
+      DWIN_Draw_Rectangle(1, GetColor(eeprom_settings.cursor_color, Rectangle_Color), 0, MBASE(selection-scrollpos) - 18, 8, MBASE(selection-scrollpos) + 31);
+    }
+  }
+  #endif
 
   #if HAS_HOTEND
     static int16_t hotendtarget = -1;
@@ -5421,7 +5626,7 @@ void CrealityDWINClass::Load_Settings(const char *buff) {
   #if ENABLED(AUTO_BED_LEVELING_UBL)
     mesh_conf.tilt_grid = eeprom_settings.tilt_grid_size+1;
   #endif
-  if (eeprom_settings.corner_pos == 0) eeprom_settings.corner_pos = 325;
+  if (eeprom_settings.corner_pos == 0) eeprom_settings.corner_pos = 264;
   corner_pos = eeprom_settings.corner_pos / 10.0f;
   Redraw_Screen();
   static bool init = true;
@@ -5437,7 +5642,7 @@ void CrealityDWINClass::Reset_Settings() {
   #if ENABLED(AUTO_BED_LEVELING_UBL)
     eeprom_settings.tilt_grid_size = 0;
   #endif
-  eeprom_settings.corner_pos = 325;
+  eeprom_settings.corner_pos = 264;
   eeprom_settings.cursor_color = 0;
   eeprom_settings.menu_split_line = 0;
   eeprom_settings.menu_top_bg = 0;
@@ -5453,6 +5658,9 @@ void CrealityDWINClass::Reset_Settings() {
     mesh_conf.tilt_grid = eeprom_settings.tilt_grid_size+1;
   #endif
   corner_pos = eeprom_settings.corner_pos / 10.0f;
+  #if ENABLED(DWIN_CREALITY_LCD_GCODE_PREVIEW)
+    eeprom_settings.show_gcode_thumbnails = true;
+  #endif
   Redraw_Screen();
 }
 
